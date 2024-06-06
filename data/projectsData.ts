@@ -1,18 +1,16 @@
 interface Project {
-  title: string,
-  description: string,
-  href?: string,
-  imgSrc?: string,
+  title: string
+  description: string
+  href?: string
+  imgSrc?: string
 }
 
 const projectsData: Project[] = [
   {
-    title: 'A Search Engine',
-    description: `What if you could look up any information in the world? Webpages, images, videos
-    and more. Google has many features to help you find exactly what you're looking
-    for.`,
-    imgSrc: '/static/images/google.png',
-    href: 'https://www.google.com',
+    title: 'Gemcaps',
+    description: `Experience personalized, concierge-level service with Gemcaps. Our advanced technology-driven platform streamlines your revenue cycle, maximizing efficiency and optimizing financial outcomes. Enjoy the seamless integration of service and technology with Gemcaps today.`,
+    imgSrc: '/static/images/gemcaps.png',
+    href: '/projects/the-time-machine',
   },
   {
     title: 'The Time Machine',
