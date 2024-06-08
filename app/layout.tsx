@@ -19,6 +19,8 @@ const space_grotesk = Space_Grotesk({
   variable: '--font-space-grotesk',
 })
 
+const inter = Roboto_Mono({ subsets: ['latin'] })
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteMetadata.siteUrl),
   title: {
@@ -58,7 +60,6 @@ export const metadata: Metadata = {
     images: [siteMetadata.socialBanner],
   },
 }
-const inter = Roboto_Mono({ subsets: ['latin'] })
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

@@ -74,7 +74,7 @@ export default function Home({ posts }) {
         <div className="flex justify-end text-base font-medium leading-6">
           <Link
             href="/blog"
-            className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+            className="text-cyan-500 hover:text-cyan-600 dark:hover:text-cyan-400"
             aria-label="All posts"
           >
             All Posts &rarr;

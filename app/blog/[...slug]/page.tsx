@@ -99,6 +99,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
   })
   const mainContent = coreContent(post)
   const jsonLd = post.structuredData
+
   jsonLd['author'] = authorDetails.map((author) => {
     return {
       '@type': 'Person',
