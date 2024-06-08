@@ -14,10 +14,7 @@ const siteMetadata = {
   email: 'shyamenk@gmail.com',
   github: 'https://github.com',
   x: 'https://twitter.com/x',
-  // facebook: 'https://facebook.com',
-  // youtube: 'https://youtube.com',
   linkedin: 'https://www.linkedin.com',
-  // threads: 'https://www.threads.net',
   instagram: 'https://www.instagram.com',
   locale: 'en-US',
   analytics: {
