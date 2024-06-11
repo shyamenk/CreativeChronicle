@@ -1,5 +1,7 @@
 {
-  "next-js": 6,
+  "rust": 1,
+  "programing-language": 1,
+  "next-js": 5,
   "tailwind": 3,
   "guide": 5,
   "feature": 2,
@@ -7,6 +9,5 @@
   "github": 1,
   "holiday": 1,
   "canada": 1,
-  "images": 1,
-  "rust": 1
+  "images": 1
 }
