@@ -11,7 +11,7 @@ import Footer from '@/components/Footer'
 import siteMetadata from '@/data/siteMetadata'
 import { ThemeProviders } from './theme-providers'
 import { Metadata } from 'next'
-import { Roboto_Mono } from 'next/font/google'
+import { Spectral } from 'next/font/google'
 
 const space_grotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -19,7 +19,7 @@ const space_grotesk = Space_Grotesk({
   variable: '--font-space-grotesk',
 })
 
-const inter = Roboto_Mono({ subsets: ['latin'] })
+const inter = Spectral({ weight: '400', subsets: ['latin'] })
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteMetadata.siteUrl),
