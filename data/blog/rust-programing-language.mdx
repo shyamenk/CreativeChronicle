@@ -20,7 +20,7 @@ Rust is a systems programming language developed by Mozilla Research, designed f
 
 One of the primary reasons developers turn to Rust is its performance. Thanks to its zero-cost abstractions and emphasis on low-level control, Rust allows you to achieve performance comparable to C and C++, making it an ideal choice for performance-critical applications. Whether you're building a high-performance web server or a real-time application, Rust's efficiency ensures that your code runs swiftly and smoothly.
 
-```rust
+```rust:main.rs
 fn main() {
     let mut sum = 0;
     for i in 0..1000000 {
@@ -34,7 +34,7 @@ fn main() {
 
 Unlike many other languages, Rust guarantees memory safety without relying on garbage collection. Its ownership model and strict compile-time checks prevent common pitfalls such as null pointer dereferencing, buffer overflows, and data races. This not only eliminates entire classes of bugs but also enhances the security and reliability of your code. With Rust, you can trust that your software behaves as intended, even in the face of complex concurrency or unsafe operations.
 
-```rust
+```rust:main.rs
 
 fn main() {
     let mut v = vec![1, 2, 3];
@@ -52,7 +52,7 @@ fn main() {
 
 Rust's fearless concurrency model allows you to write concurrent code with confidence. By leveraging the ownership system and type system, Rust ensures that data races and other concurrency bugs are caught at compile time rather than lurking in your code until runtime. This makes it easier to write concurrent programs that are both correct and efficient, unlocking the full potential of modern multicore processors.
 
-```rust
+```rust:main.rs
 use std::thread;
 
 fn main() {

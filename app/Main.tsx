@@ -32,10 +32,10 @@ export default function Home({ posts }) {
                         <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
                       </dd>
                     </dl>
-                    <div className="space-y-5 xl:col-span-3">
-                      <div className="space-y-6">
+                    <div className="space-y-3 xl:col-span-3">
+                      <div className="space-y-2">
                         <div>
-                          <h2 className="text-2xl font-bold leading-8 tracking-tight">
+                          <h2 className="text-3xl font-bold leading-12 tracking-wider">
                             <Link
                               href={`/blog/${slug}`}
                               className="text-gray-900 dark:text-gray-100"
@@ -43,20 +43,20 @@ export default function Home({ posts }) {
                               {title}
                             </Link>
                           </h2>
-                          <div className="flex flex-wrap">
+                          <div className="flex flex-wrap font-bold text-cyan-500">
                             {tags.map((tag) => (
                               <Tag key={tag} text={tag} />
                             ))}
                           </div>
                         </div>
-                        <div className="prose max-w-none text-[18px] text-gray-500 dark:text-gray-400">
+                        <div className="prose max-w-none text-[20px] text-gray-500 dark:text-gray-400">
                           {summary}
                         </div>
                       </div>
                       <div className="text-base font-medium leading-6">
                         <Link
                           href={`/blog/${slug}`}
-                          className="text-cyan-500 hover:text-cyan-600 dark:hover:text-cyan-400"
+                          className="text-[20px] text-cyan-500 hover:text-cyan-600 dark:hover:text-cyan-400"
                           aria-label={`Read more: "${title}"`}
                         >
                           Read more &rarr;

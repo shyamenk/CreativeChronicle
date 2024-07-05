@@ -21,7 +21,7 @@ summary: 'PostgreSQL is a powerful relational database management system that of
 
 One of the fundamental aspects of query optimization in PostgreSQL is understanding execution plans. Execution plans provide insights into how PostgreSQL executes a query and help identify areas for optimization.
 
-```sql
+```sql:analyze.sql
 EXPLAIN ANALYZE
 SELECT * FROM table_name WHERE column_name = 'value';
 
@@ -37,7 +37,7 @@ By analyzing the execution plan, you can identify inefficient query patterns, su
 
 Indexes play a crucial role in query performance optimization. However, creating too many indexes or using the wrong type of index can degrade performance. It's essential to analyze query patterns and create indexes strategically.
 
-```sql
+```sql:index.sql
 CREATE INDEX idx_column_name ON table_name (column_name);
 
 ```
@@ -48,7 +48,7 @@ Consider using composite indexes for queries involving multiple columns and part
 
 Rewriting complex queries into simpler forms can often improve performance. Common techniques include using subqueries, CTEs (Common Table Expressions), and window functions to simplify queries and reduce computational overhead.
 
-```sql
+```sql:rewrite.sql
 WITH cte AS (
     SELECT column1, column2, ROW_NUMBER() OVER (PARTITION BY column1 ORDER BY column2) AS rn
     FROM table_name
@@ -61,7 +61,7 @@ SELECT column1, column2 FROM cte WHERE rn = 1;
 
 Partitioning divides large tables into smaller, more manageable segments, improving query performance and data maintenance. PostgreSQL supports table partitioning through inheritance or declarative partitioning.
 
-```sql
+```sql:partition.sql
 CREATE TABLE parent_table (
     id SERIAL PRIMARY KEY,
     partition_key INT
@@ -78,7 +78,7 @@ Partitioning based on frequently queried columns can significantly enhance query
 
 Regularly analyzing database statistics helps PostgreSQL make informed decisions about query execution plans. Use the ANALYZE command to update statistics, enabling PostgreSQL to generate optimal execution plans based on the latest data distribution.
 
-```sql
+```sql:analyze.sql
 ANALYZE table_name;
 
 ```
@@ -87,7 +87,7 @@ ANALYZE table_name;
 
 Materialized views store the results of a query as a physical table, eliminating the need to compute the same result repeatedly. Refreshing materialized views periodically ensures that they reflect the latest data, improving query performance for complex and frequently accessed data.
 
-```sql
+```sql:view.sql
 CREATE MATERIALIZED VIEW mv_name AS
 SELECT column1, column2, COUNT(*)
 FROM table_name

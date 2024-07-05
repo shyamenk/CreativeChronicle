@@ -19,7 +19,7 @@ const space_grotesk = Space_Grotesk({
   variable: '--font-space-grotesk',
 })
 
-const inter = Spectral({ weight: '400', subsets: ['latin'] })
+const spectral = Spectral({ weight: '400', subsets: ['latin'] })
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteMetadata.siteUrl),
@@ -84,7 +84,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <div className="flex h-screen flex-col justify-between font-sans">
               <SearchProvider searchConfig={siteMetadata.search as SearchConfig}>
                 <Header />
-                <main className={`${inter.className} mb-auto`}>{children}</main>
+                <main className={`${spectral.className} mb-auto`}>{children}</main>
               </SearchProvider>
               <Footer />
             </div>
