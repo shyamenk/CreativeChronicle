@@ -117,12 +117,12 @@ export default function ListLayout({
             return (
               <li key={path} className="py-4">
                 <article className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
-                  <dl>
+                  {/* <dl>
                     <dt className="sr-only">Published on</dt>
                     <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
                       <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
                     </dd>
-                  </dl>
+                  </dl> */}
                   <div className="space-y-3 xl:col-span-3">
                     <div>
                       <h2 className="text-3xl font-bold leading-12 ">

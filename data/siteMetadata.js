@@ -2,8 +2,9 @@
 const siteMetadata = {
   title: 'Portfolio',
   author: 'Shyam Kumar',
-  headerTitle: 'shyamenk',
-  description: '',
+  headerTitle: 'Creative Chronicles',
+  description:
+    'Explore the creative journey through insightful articles, tips, and showcases on design, development, and more.',
   language: 'en-us',
   theme: 'system',
   siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
