@@ -2,7 +2,7 @@
 const siteMetadata = {
   title: 'Portfolio',
   author: 'Shyam Kumar',
-  headerTitle: 'Creative Chronicles',
+  headerTitle: 'InsIghts',
   description:
     'Explore the creative journey through insightful articles, tips, and showcases on design, development, and more.',
   language: 'en-us',
