@@ -6,6 +6,17 @@ draft: false
 summary: 'Unlocking Performance and Safety with Rust'
 ---
 
+## Table of Contents
+
+- [Unlocking Performance and Safety with Rust](#unlocking-performance-and-safety-with-rust)
+- [What is Rust?](#what-is-rust)
+- [Key Benefits of Rust](#key-benefits-of-rust)
+  - [Performance](#performance)
+  - [Safety](#safety)
+  - [Concurrency](#concurrency)
+  - [Community and Ecosystem](#community-and-ecosystem)
+- [Conclusion](#conclusion)
+
 ## Unlocking Performance and Safety with Rust
 
 In the realm of programming languages, there's always been a trade-off between performance and safety. Traditionally, languages like C and C++ have provided excellent performance but often at the cost of safety, leading to bugs, crashes, and security vulnerabilities. On the other hand, languages like Java and Python prioritize safety and ease of use but may sacrifice performance in the process. Enter Rust, a modern systems programming language that aims to bridge this gap, offering both performance and safety without compromise.
@@ -20,9 +31,10 @@ Rust is a systems programming language developed by Mozilla Research, designed f
 
 One of the primary reasons developers turn to Rust is its performance. Thanks to its zero-cost abstractions and emphasis on low-level control, Rust allows you to achieve performance comparable to C and C++, making it an ideal choice for performance-critical applications. Whether you're building a high-performance web server or a real-time application, Rust's efficiency ensures that your code runs swiftly and smoothly.
 
-```rust:main.rs
+```rust:main.rs copy index.rs
 fn main() {
     let mut sum = 0;
+
     for i in 0..1000000 {
         sum += i;
     }
