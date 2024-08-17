@@ -6,6 +6,8 @@ import { CoreContent } from 'pliny/utils/contentlayer'
 import type { Blog } from 'contentlayer/generated'
 import Link from '@/components/Link'
 import Tag from '@/components/Tag'
+import { formatDate } from 'pliny/utils/formatDate'
+import { AlarmClockCheck } from 'lucide-react'
 
 interface PaginationProps {
   totalPages: number
@@ -35,7 +37,7 @@ function Pagination({ totalPages, currentPage }: PaginationProps) {
                 currentPage - 1 === 1 ? `/${basePath}/` : `/${basePath}/page/${currentPage - 1}`
               }
               rel="prev"
-              className="text-md text-cyan-600 hover:underline"
+              className="text-md text-indigo-500 hover:underline"
             >
               Previous
             </Link>
@@ -51,7 +53,7 @@ function Pagination({ totalPages, currentPage }: PaginationProps) {
             <Link
               href={`/${basePath}/page/${currentPage + 1}`}
               rel="next"
-              className="text-md text-cyan-600 hover:underline"
+              className="text-md text-indigo-500 hover:underline"
             >
               Next
             </Link>
@@ -82,7 +84,7 @@ export default function ListLayout({
   return (
     <div className="mx-auto max-w-4xl px-4 py-8">
       <header className="mb-8">
-        <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100">{title || 'Blog'}</h1>
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">{title || 'Blog'}</h1>
       </header>
       <main>
         <input
@@ -93,23 +95,40 @@ export default function ListLayout({
           onChange={(e) => setSearchValue(e.target.value)}
         />
         <ul className="space-y-6">
-          {!filteredBlogPosts.length && <p className="text-gray-500">No posts found.</p>}
+          {!filteredBlogPosts.length && (
+            <p className="text-center text-gray-500 dark:text-gray-400">No posts found.</p>
+          )}
           {displayPosts.map((post) => {
-            const { path, title, summary, tags } = post
+            const { path, title, summary, tags, date, readingTime } = post
             return (
               <li
                 key={path}
-                className="rounded-lg border border-gray-300 bg-white p-4 shadow-md dark:border-gray-700 dark:bg-[#191B28] dark:shadow-md"
+                className="rounded-lg border border-gray-300 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-900 dark:shadow-sm"
               >
                 <article>
-                  <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">
-                    <Link href={`/${path}`}>{title}</Link>
-                  </h2>
-                  <div className="mt-2 flex flex-wrap gap-2">
-                    {tags?.map((tag) => <Tag key={tag} text={tag} />)}
+                  <div className="flex items-center justify-between">
+                    <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">
+                      <Link
+                        href={`/${path}`}
+                        className="hover:text-gray-700 dark:hover:text-gray-300"
+                      >
+                        {title}
+                      </Link>
+                    </h2>
+                    <time dateTime={date} className="text-gray-500 dark:text-gray-400">
+                      {formatDate(date, 'en-US')}
+                    </time>
                   </div>
-                  <p className="mt-4 text-lg text-gray-700 dark:text-gray-300">{summary}</p>{' '}
-                  {/* Increased font size */}
+                  <div className="mt-2 flex items-center justify-between text-gray-600 dark:text-gray-500">
+                    <div className="flex flex-wrap gap-2">
+                      {tags?.map((tag) => <Tag key={tag} text={tag} />)}
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <AlarmClockCheck size={20} />
+                      <p className="text-sm">{readingTime.text}</p>
+                    </div>
+                  </div>
+                  <p className="mt-4 text-lg text-gray-700 dark:text-gray-300">{summary}</p>
                 </article>
               </li>
             )

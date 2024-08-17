@@ -30,7 +30,7 @@ interface LayoutProps {
 }
 
 export default function PostLayout({ content, authorDetails, next, prev, children }: LayoutProps) {
-  const { filePath, path, slug, date, title, tags } = content
+  const { path, slug, date, title, tags } = content
   const basePath = path.split('/')[0]
 
   return (
@@ -73,13 +73,15 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                       )}
                       <dl className="whitespace-nowrap text-sm font-medium leading-5">
                         <dt className="sr-only">Name</dt>
-                        <dd className="text-gray-900 dark:text-gray-100">{author.name}</dd>
+                        <dd className=" text-[18px] font-bold text-gray-900 dark:text-gray-100">
+                          {author.name}
+                        </dd>
                         <dt className="sr-only">Twitter</dt>
                         <dd>
                           {author.twitter && (
                             <Link
                               href={author.twitter}
-                              className="text-cyan-500 hover:text-cyan-600 dark:hover:text-cyan-400"
+                              className="font-semibold text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400"
                             >
                               {author.twitter
                                 .replace('https://twitter.com/', '@')
@@ -125,20 +127,20 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                   <div className="flex justify-between py-4 xl:block xl:space-y-8 xl:py-8">
                     {prev && prev.path && (
                       <div>
-                        <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                        <h2 className="mb-1 text-[16px] font-bold uppercase tracking-wide text-gray-500 dark:text-gray-400">
                           Previous Article
                         </h2>
-                        <div className="text-cyan-500 hover:text-cyan-600 dark:hover:text-cyan-400">
+                        <div className=" font-bold text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400">
                           <Link href={`/${prev.path}`}>{prev.title}</Link>
                         </div>
                       </div>
                     )}
                     {next && next.path && (
                       <div>
-                        <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                        <h2 className="mb-1 text-[16px] font-bold uppercase tracking-wide text-gray-500 dark:text-gray-400">
                           Next Article
                         </h2>
-                        <div className="text-cyan-500 hover:text-cyan-600 dark:hover:text-cyan-400">
+                        <div className="font-bold text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400">
                           <Link href={`/${next.path}`}>{next.title}</Link>
                         </div>
                       </div>
@@ -149,7 +151,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
               <div className="pt-4 xl:pt-8">
                 <Link
                   href={`/${basePath}`}
-                  className="text-cyan-500 hover:text-cyan-600 dark:hover:text-cyan-400"
+                  className="font-bold text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400"
                   aria-label="Back to the blog"
                 >
                   &larr; Back to the blog

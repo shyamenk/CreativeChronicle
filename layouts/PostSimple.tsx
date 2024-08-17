@@ -15,9 +15,11 @@ interface LayoutProps {
   next?: { path: string; title: string }
   prev?: { path: string; title: string }
 }
+
 console.log('Hellow')
+
 export default function PostLayout({ content, next, prev, children }: LayoutProps) {
-  const { path, slug, date, title } = content
+  const { slug, date, title } = content
 
   return (
     <SectionContainer>
@@ -56,7 +58,7 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                   <div className="pt-4 xl:pt-8">
                     <Link
                       href={`/${prev.path}`}
-                      className="text-cyan-500 hover:text-cyan-600 dark:hover:text-cyan-400"
+                      className="text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400"
                       aria-label={`Previous post: ${prev.title}`}
                     >
                       &larr; {prev.title}
@@ -67,7 +69,7 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                   <div className="pt-4 xl:pt-8">
                     <Link
                       href={`/${next.path}`}
-                      className="text-cyan-500 hover:text-cyan-600 dark:hover:text-cyan-400"
+                      className="text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400"
                       aria-label={`Next post: ${next.title}`}
                     >
                       {next.title} &rarr;
