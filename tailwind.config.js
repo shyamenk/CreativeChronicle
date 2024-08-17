@@ -27,6 +27,7 @@ module.exports = {
       colors: {
         primary: colors.cyan,
         gray: colors.gray,
+        mocha: '#1e1e1e',
       },
       typography: ({ theme }) => ({
         DEFAULT: {

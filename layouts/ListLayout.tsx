@@ -2,17 +2,16 @@
 
 import { useState } from 'react'
 import { usePathname } from 'next/navigation'
-import { formatDate } from 'pliny/utils/formatDate'
 import { CoreContent } from 'pliny/utils/contentlayer'
 import type { Blog } from 'contentlayer/generated'
 import Link from '@/components/Link'
 import Tag from '@/components/Tag'
-import siteMetadata from '@/data/siteMetadata'
 
 interface PaginationProps {
   totalPages: number
   currentPage: number
 }
+
 interface ListLayoutProps {
   posts: CoreContent<Blog>[]
   title: string
@@ -27,34 +26,39 @@ function Pagination({ totalPages, currentPage }: PaginationProps) {
   const nextPage = currentPage + 1 <= totalPages
 
   return (
-    <div className="space-y-2 pb-8 pt-6 md:space-y-5">
-      <nav className="flex justify-between">
-        {!prevPage && (
-          <button className="cursor-auto disabled:opacity-50" disabled={!prevPage}>
-            Previous
-          </button>
-        )}
-        {prevPage && (
-          <Link
-            href={currentPage - 1 === 1 ? `/${basePath}/` : `/${basePath}/page/${currentPage - 1}`}
-            rel="prev"
-          >
-            Previous
-          </Link>
-        )}
-        <span>
-          {currentPage} of {totalPages}
+    <div className="py-8">
+      <nav className="flex items-center justify-between">
+        <div>
+          {prevPage ? (
+            <Link
+              href={
+                currentPage - 1 === 1 ? `/${basePath}/` : `/${basePath}/page/${currentPage - 1}`
+              }
+              rel="prev"
+              className="text-md text-cyan-600 hover:underline"
+            >
+              Previous
+            </Link>
+          ) : (
+            <span className="cursor-not-allowed text-gray-500">Previous</span>
+          )}
+        </div>
+        <span className="text-gray-600">
+          Page {currentPage} of {totalPages}
         </span>
-        {!nextPage && (
-          <button className="cursor-auto disabled:opacity-50" disabled={!nextPage}>
-            Next
-          </button>
-        )}
-        {nextPage && (
-          <Link href={`/${basePath}/page/${currentPage + 1}`} rel="next">
-            Next
-          </Link>
-        )}
+        <div>
+          {nextPage ? (
+            <Link
+              href={`/${basePath}/page/${currentPage + 1}`}
+              rel="next"
+              className="text-md text-cyan-600 hover:underline"
+            >
+              Next
+            </Link>
+          ) : (
+            <span className="cursor-not-allowed text-gray-500">Next</span>
+          )}
+        </div>
       </nav>
     </div>
   )
@@ -62,9 +66,9 @@ function Pagination({ totalPages, currentPage }: PaginationProps) {
 
 export default function ListLayout({
   posts,
-  title,
   initialDisplayPosts = [],
   pagination,
+  title,
 }: ListLayoutProps) {
   const [searchValue, setSearchValue] = useState('')
   const filteredBlogPosts = posts.filter((post) => {
@@ -72,81 +76,49 @@ export default function ListLayout({
     return searchContent.toLowerCase().includes(searchValue.toLowerCase())
   })
 
-  // If initialDisplayPosts exist, display it if no searchValue is specified
   const displayPosts =
     initialDisplayPosts.length > 0 && !searchValue ? initialDisplayPosts : filteredBlogPosts
 
   return (
-    <>
-      <div className="divide-y divide-gray-200 dark:divide-gray-700">
-        <div className="space-y-2 pb-8 pt-6 md:space-y-5">
-          <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-            {title}
-          </h1>
-          <div className="relative max-w-full">
-            <label>
-              <span className="sr-only">Search articles</span>
-              <input
-                aria-label="Search articles"
-                type="text"
-                onChange={(e) => setSearchValue(e.target.value)}
-                placeholder="Search articles"
-                className="block w-full rounded-md border border-gray-300 bg-white px-4 py-2 text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-900 dark:bg-gray-800 dark:text-gray-100"
-              />
-            </label>
-            <svg
-              className="absolute right-3 top-3 h-5 w-5 text-gray-400 dark:text-gray-300"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-              />
-            </svg>
-          </div>
-        </div>
-        <ul>
-          {!filteredBlogPosts.length && 'No posts found.'}
+    <div className="mx-auto max-w-4xl px-4 py-8">
+      <header className="mb-8">
+        <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100">{title || 'Blog'}</h1>
+      </header>
+      <main>
+        <input
+          type="text"
+          placeholder="Search posts..."
+          className="mb-6 w-full rounded-lg border border-gray-300 bg-gray-200 px-4 py-2 text-gray-900 shadow-sm dark:border-[#191B28] dark:bg-[#191B28] dark:text-gray-100 dark:shadow-md"
+          value={searchValue}
+          onChange={(e) => setSearchValue(e.target.value)}
+        />
+        <ul className="space-y-6">
+          {!filteredBlogPosts.length && <p className="text-gray-500">No posts found.</p>}
           {displayPosts.map((post) => {
-            const { path, date, title, summary, tags } = post
+            const { path, title, summary, tags } = post
             return (
-              <li key={path} className="py-4">
-                <article className="space-y-2 xl:grid xl:grid-cols-3 xl:items-baseline xl:space-y-0">
-                  {/* <dl>
-                    <dt className="sr-only">Published on</dt>
-                    <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                      <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
-                    </dd>
-                  </dl> */}
-                  <div className="space-y-3 xl:col-span-3">
-                    <div>
-                      <h2 className="text-3xl font-bold leading-12 ">
-                        <Link href={`/${path}`} className="text-gray-900 dark:text-gray-100">
-                          {title}
-                        </Link>
-                      </h2>
-                      <div className="flex flex-wrap">
-                        {tags?.map((tag) => <Tag key={tag} text={tag} />)}
-                      </div>
-                    </div>
-                    <div className="prose max-w-none text-[18px] text-gray-500 dark:text-gray-400">
-                      {summary}
-                    </div>
+              <li
+                key={path}
+                className="rounded-lg border border-gray-300 bg-white p-4 shadow-md dark:border-gray-700 dark:bg-[#191B28] dark:shadow-md"
+              >
+                <article>
+                  <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">
+                    <Link href={`/${path}`}>{title}</Link>
+                  </h2>
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    {tags?.map((tag) => <Tag key={tag} text={tag} />)}
                   </div>
+                  <p className="mt-4 text-lg text-gray-700 dark:text-gray-300">{summary}</p>{' '}
+                  {/* Increased font size */}
                 </article>
               </li>
             )
           })}
         </ul>
-      </div>
+      </main>
       {pagination && pagination.totalPages > 1 && !searchValue && (
         <Pagination currentPage={pagination.currentPage} totalPages={pagination.totalPages} />
       )}
-    </>
+    </div>
   )
 }
