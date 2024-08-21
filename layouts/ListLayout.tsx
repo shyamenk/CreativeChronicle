@@ -90,7 +90,7 @@ export default function ListLayout({
         <input
           type="text"
           placeholder="Search posts..."
-          className="mb-6 w-full rounded-lg border border-gray-300 bg-gray-200 px-4 py-2 text-gray-900 shadow-sm dark:border-[#191B28] dark:bg-[#191B28] dark:text-gray-100 dark:shadow-md"
+          className="mb-6 w-full rounded-lg border border-indigo-300 bg-indigo-50 px-4 py-2 text-gray-900 shadow-sm ring-sky-50 dark:border-[#191B28] dark:bg-[#191B28] dark:text-gray-100 dark:shadow-md"
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
         />
@@ -103,7 +103,7 @@ export default function ListLayout({
             return (
               <li
                 key={path}
-                className="rounded-lg border border-gray-300 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-900 dark:shadow-sm"
+                className="rounded-lg border border-gray-300 bg-indigo-50 p-6 shadow-sm dark:border-gray-700 dark:bg-gray-900 dark:shadow-sm"
               >
                 <article>
                   <div className="flex items-center justify-between">

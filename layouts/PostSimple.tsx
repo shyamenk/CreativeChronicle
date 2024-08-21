@@ -16,8 +16,6 @@ interface LayoutProps {
   prev?: { path: string; title: string }
 }
 
-console.log('Hellow')
-
 export default function PostLayout({ content, next, prev, children }: LayoutProps) {
   const { slug, date, title } = content
 

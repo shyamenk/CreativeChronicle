@@ -25,7 +25,7 @@ export default function Home({ posts }) {
           return (
             <li
               key={slug}
-              className="rounded-lg border border-gray-300 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-900 dark:shadow-sm"
+              className="rounded-lg border border-gray-300 bg-indigo-50 p-6 shadow-sm dark:border-gray-700 dark:bg-gray-900 dark:shadow-sm"
             >
               <article>
                 <div className="flex items-center justify-between">
