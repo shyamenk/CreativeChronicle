@@ -84,13 +84,13 @@ export default function ListLayoutWithTags({
   return (
     <>
       <div>
-        <div className="pb-6 pt-6">
+        <div className="mx-auto max-w-4xl pb-6 pt-6">
           <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:hidden sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
             {title}
           </h1>
         </div>
-        <div className="flex sm:space-x-24">
-          <div className="hidden h-full max-h-screen min-w-[280px] max-w-[280px] flex-wrap overflow-auto rounded-md bg-gray-50 pt-5 shadow-md dark:bg-[#1e1e2e] sm:flex">
+        <div className="flex sm:space-x-24 md:mx-auto md:max-w-4xl">
+          <div className="hidden h-full max-h-screen min-w-[280px] max-w-[280px] flex-wrap overflow-auto rounded-md bg-indigo-50 pt-5 shadow-md dark:bg-[#1e1e2e] sm:flex">
             <div className="px-6 py-4">
               {pathname.startsWith('/blog') ? (
                 <h3 className="font-bold uppercase text-indigo-500">All Articles</h3>
@@ -134,13 +134,13 @@ export default function ListLayoutWithTags({
                     <article className="flex flex-col space-y-2 xl:space-y-0">
                       <dl>
                         <dt className="sr-only">Published on</dt>
-                        <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
+                        <dd className="mb-2 text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
                           <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
                         </dd>
                       </dl>
-                      <div className="space-y-3">
+                      <div className="space-y-4">
                         <div>
-                          <h2 className="text-3xl font-bold leading-8 tracking-tight">
+                          <h2 className="mb-2 text-2xl  font-bold leading-8 tracking-tight">
                             <Link href={`/${path}`} className="text-gray-900 dark:text-gray-100">
                               {title}
                             </Link>
@@ -149,7 +149,7 @@ export default function ListLayoutWithTags({
                             {tags?.map((tag) => <Tag key={tag} text={tag} />)}
                           </div>
                         </div>
-                        <div className="prose max-w-none text-[18px] text-gray-500 dark:text-gray-400">
+                        <div className="prose max-w-none text-md text-gray-500 dark:text-gray-400">
                           {summary}
                         </div>
                       </div>

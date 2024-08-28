@@ -2,7 +2,7 @@ import 'css/tailwind.css'
 import 'pliny/search/algolia.css'
 import 'remark-github-blockquote-alert/alert.css'
 
-import { Space_Grotesk } from 'next/font/google'
+import { JetBrains_Mono } from 'next/font/google'
 import { Analytics, AnalyticsConfig } from 'pliny/analytics'
 import { SearchProvider, SearchConfig } from 'pliny/search'
 import Header from '@/components/Header'
@@ -11,15 +11,12 @@ import Footer from '@/components/Footer'
 import siteMetadata from '@/data/siteMetadata'
 import { ThemeProviders } from './theme-providers'
 import { Metadata } from 'next'
-import { Spectral } from 'next/font/google'
 
-const space_grotesk = Space_Grotesk({
+const jetBrainsMono = JetBrains_Mono({
+  weight: ['400', '500', '600', '700'],
   subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-space-grotesk',
+  variable: '--font-jetbrains-mono',
 })
-
-const spectral = Spectral({ weight: '400', subsets: ['latin'] })
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteMetadata.siteUrl),
@@ -63,11 +60,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang={siteMetadata.language}
-      className={`${space_grotesk.variable} scroll-smooth`}
-      suppressHydrationWarning
-    >
+    <html lang={siteMetadata.language} suppressHydrationWarning>
       <link rel="apple-touch-icon" sizes="76x76" href="/static/favicons/apple-touch-icon.png" />
       <link rel="icon" type="image/png" sizes="32x32" href="/static/favicons/favicon-32x32.png" />
       <link rel="icon" type="image/png" sizes="16x16" href="/static/favicons/favicon-16x16.png" />
@@ -77,14 +70,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
       <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
-      <body className="bg-indigo-50 pl-[calc(100vw-100%)] text-black antialiased dark:bg-[#191B28] dark:text-white">
+      <body
+        className={`${jetBrainsMono.className} bg-indigo-50 pl-[calc(100vw-100%)] text-black antialiased dark:bg-[#191B28] dark:text-white`}
+      >
         <ThemeProviders>
           <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
           <SectionContainer>
-            <div className="flex h-screen flex-col justify-between font-sans">
+            <div className="flex h-screen flex-col justify-between">
               <SearchProvider searchConfig={siteMetadata.search as SearchConfig}>
                 <Header />
-                <main className={`${spectral.className} mb-auto`}>{children}</main>
+                <main className="mb-auto">{children}</main>
               </SearchProvider>
               <Footer />
             </div>

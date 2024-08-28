@@ -27,9 +27,9 @@ export default function PostMinimal({ content, next, prev, children }: LayoutPro
       <ScrollTopAndComment />
       <article>
         <div className="text-center dark:border-gray-700">
-          <div className="relative mx-auto max-w-4xl pb-10">
+          <div className="relative mx-auto max-w-3xl pb-10">
             <Bleed>
-              <div className="relative aspect-[2/1] w-full overflow-hidden rounded-md">
+              <div className="relative mx-auto aspect-[2/1] w-full max-w-4xl overflow-hidden rounded-md">
                 <Image
                   src={displayImage}
                   alt={title}
@@ -41,11 +41,11 @@ export default function PostMinimal({ content, next, prev, children }: LayoutPro
               </div>
             </Bleed>
           </div>
-          <div className="relative pt-10">
+          <div className="relative pt-4">
             <PageTitle>{title}</PageTitle>
           </div>
         </div>
-        <div className="prose max-w-none py-4 text-[19px] dark:prose-invert">{children}</div>
+        <div className="prose mx-auto max-w-4xl py-4 text-md dark:prose-invert">{children}</div>
         {siteMetadata.comments && (
           <div className="pb-6 pt-6 text-center text-gray-700 dark:text-gray-300" id="comment">
             <Comments slug={slug} />

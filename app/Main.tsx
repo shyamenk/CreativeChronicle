@@ -11,9 +11,9 @@ const MAX_DISPLAY = 5
 
 export default function Home({ posts }) {
   return (
-    <div className="mx-auto max-w-4xl px-4 py-8">
+    <div className="mx-auto max-w-4xl px-4 pt-4">
       <header className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Recent Posts</h1>
+        <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100">Recent Posts</h1>
       </header>
       <ul className="space-y-6">
         {!posts.length && (
@@ -41,7 +41,7 @@ export default function Home({ posts }) {
                     {formatDate(date, siteMetadata.locale)}
                   </time>
                 </div>
-                <div className="mt-2 flex items-center justify-between text-gray-600 dark:text-gray-500">
+                <div className="mb-4 mt-2 flex items-center justify-between text-gray-600 dark:text-gray-500">
                   <div className="flex flex-wrap gap-2">
                     {tags.map((tag) => (
                       <Tag key={tag} text={tag} />
@@ -52,7 +52,7 @@ export default function Home({ posts }) {
                     <p className="text-sm">{readingTime.text}</p>
                   </div>
                 </div>
-                <p className="mt-2 text-lg text-gray-700 dark:text-gray-300">{summary}</p>
+                <p className="text-md text-gray-700 dark:text-gray-300">{summary}</p>
                 <div className="mt-2 flex justify-between text-base font-medium">
                   <Link
                     href={`/blog/${slug}`}

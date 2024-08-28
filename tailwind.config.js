@@ -15,14 +15,30 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['JetBrains Mono', ...fontFamily.sans],
+      },
+      fontSize: {
+        md: '1rem',
+        lg: '1.125rem',
+        xl: '1.25rem',
+        '2xl': '1.5rem',
+        '3xl': '1.875rem',
+        '4xl': '2.25rem',
+        '5xl': '3rem',
+        '6xl': '3.75rem',
+      },
+      fontWeight: {
+        400: '400',
+        500: '500',
+        600: '600',
+        700: '700',
+      },
       lineHeight: {
         11: '2.75rem',
         12: '3rem',
         13: '3.25rem',
         14: '3.5rem',
-      },
-      fontFamily: {
-        sans: ['var(--font-space-grotesk)', ...fontFamily.sans],
       },
       colors: {
         primary: colors.indigo,
@@ -35,7 +51,7 @@ module.exports = {
             a: {
               color: theme('colors.primary.500'),
               '&:hover': {
-                color: `${theme('colors.primary.600')}`,
+                color: theme('colors.primary.600'),
               },
               code: { color: theme('colors.primary.400') },
             },
@@ -65,7 +81,7 @@ module.exports = {
             a: {
               color: theme('colors.primary.500'),
               '&:hover': {
-                color: `${theme('colors.primary.400')}`,
+                color: theme('colors.primary.400'),
               },
               code: { color: theme('colors.primary.400') },
             },
@@ -77,9 +93,5 @@ module.exports = {
       }),
     },
   },
-  plugins: [
-    require('@tailwindcss/forms'),
-    require('@tailwindcss/typography'),
-    require('@catppuccin/tailwindcss'),
-  ],
+  plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
 }

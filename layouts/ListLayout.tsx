@@ -89,7 +89,7 @@ export default function ListLayout({
       <main>
         <input
           type="text"
-          placeholder="Search posts..."
+          placeholder="Search articles..."
           className="mb-6 w-full rounded-lg border border-indigo-300 bg-indigo-50 px-4 py-2 text-gray-900 shadow-sm ring-sky-50 dark:border-[#191B28] dark:bg-[#191B28] dark:text-gray-100 dark:shadow-md"
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
@@ -128,7 +128,7 @@ export default function ListLayout({
                       <p className="text-sm">{readingTime.text}</p>
                     </div>
                   </div>
-                  <p className="mt-4 text-lg text-gray-700 dark:text-gray-300">{summary}</p>
+                  <p className="mt-4 text-md text-gray-700 dark:text-gray-300">{summary}</p>
                 </article>
               </li>
             )

@@ -1,15 +1,6 @@
 {
-  "github": 1,
-  "guide": 5,
-  "next-js": 5,
-  "tailwind": 3,
-  "holiday": 1,
-  "canada": 1,
-  "images": 1,
   "postgres": 1,
   "database": 1,
-  "feature": 2,
   "rust": 1,
-  "programing-language": 1,
-  "multi-author": 1
+  "programing-language": 1
 }
