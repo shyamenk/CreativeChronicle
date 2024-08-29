@@ -8,24 +8,9 @@ import { AlarmClockCheck, ArrowRight, Calendar } from 'lucide-react'
 
 const MAX_DISPLAY = 5
 
-type PostTag = string
 
-interface Post {
-  slug: string
-  date: string
-  title: string
-  summary: string
-  tags: PostTag[]
-  readingTime: {
-    text: string
-  }
-}
 
-interface HomeProps {
-  posts: Post[]
-}
-
-export default function Home({ posts }: HomeProps) {
+export default function Home({ posts }) {
   return (
     <div className="mx-auto max-w-4xl px-4 py-8">
       <header className="relative mb-8">
