@@ -8,8 +8,6 @@ import { AlarmClockCheck, ArrowRight, Calendar } from 'lucide-react'
 
 const MAX_DISPLAY = 5
 
-
-
 export default function Home({ posts }) {
   return (
     <div className="mx-auto max-w-4xl px-4 py-8">
@@ -28,7 +26,7 @@ export default function Home({ posts }) {
           return (
             <li
               key={slug}
-              className="border-b border-gray-200  dark:border-gray-700 dark:bg-gray-900"
+              className="border-b border-gray-200 dark:border-gray-700 dark:bg-gray-900"
             >
               <article>
                 <h2 className="mb-2 text-xl font-semibold text-gray-900 dark:text-gray-100 sm:text-2xl">
