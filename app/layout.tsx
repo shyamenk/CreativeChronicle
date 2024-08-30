@@ -71,7 +71,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       <body
-        className={`${jetBrainsMono.className} l-[calc(100vw-100%)] bg-[#ffffff] text-black antialiased dark:bg-[#191B28] dark:text-white`}
+        className={`${jetBrainsMono.className} bg-white pl-[calc(100vw-100%)] text-black antialiased dark:bg-[#191B28] dark:text-white`}
       >
         <ThemeProviders>
           <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />

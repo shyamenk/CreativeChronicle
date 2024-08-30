@@ -13,11 +13,11 @@ export default function Home({ posts }) {
     <div className="mx-auto max-w-3xl  py-6">
       <header className="mb-16">
         {siteMetadata.newsletter?.provider && (
-          <div className="relative rounded-lg bg-indigo-50 p-6 dark:bg-indigo-900">
+          <div className="relative rounded-lg bg-gray-100 p-6 dark:bg-indigo-900">
             <h2 className="mb-2 text-xl font-bold text-gray-900 dark:text-gray-100">
               Stay updated with Backend Almanac
             </h2>
-            <p className="mb-4 text-base font-medium text-gray-700 dark:text-gray-300">
+            <p className="mb-4 text-base text-gray-600 dark:text-gray-300">
               <strong>Practical tips</strong> on <strong>Linux</strong>, <strong>AWS</strong>,{' '}
               <strong>Docker</strong>, and more.
               <br />
