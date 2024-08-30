@@ -18,6 +18,15 @@ module.exports = {
       fontFamily: {
         sans: ['JetBrains Mono', ...fontFamily.sans],
       },
+      keyframes: {
+        underline: {
+          '0%': { width: '0%', left: '50%' },
+          '100%': { width: '50%', left: '25%' },
+        },
+      },
+      animation: {
+        underline: 'underline 0.3s ease-out forwards',
+      },
       fontSize: {
         md: '1rem',
         lg: '1.125rem',
