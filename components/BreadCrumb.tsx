@@ -1,4 +1,4 @@
-import { ChevronRight, Home } from 'lucide-react'
+import { ChevronRight } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
 import { usePathname } from 'next/navigation'
@@ -8,11 +8,10 @@ const BreadCrumb = () => {
   const pathSegments = pathname.split('/').filter(Boolean)
 
   return (
-    <nav className="mb-8 text-gray-600">
+    <nav className="mb-2 text-gray-600">
       <ol className="flex items-center space-x-2">
         <li>
           <Link href="/" className="flex items-center text-gray-600 hover:text-gray-800">
-            <Home size={16} className="mr-1" />
             Home
           </Link>
         </li>
