@@ -16,9 +16,11 @@ export default function Home({ posts }) {
         <IntroComponent />
       </header>
       <div className="mb-8">
-        <h2 className="mb-8 border-b pb-2 text-5xl font-bold text-gray-600 transition-colors hover:text-gray-600">
-          Recent Articles
-        </h2>
+        <div className="space-y-2 pb-6 pt-4">
+          <h1 className="gradient-text border-b pb-2 text-4xl font-extrabold leading-tight text-transparent sm:text-6xl sm:leading-tight">
+            Recent Articles
+          </h1>
+        </div>
         <ul className="space-y-8">
           {!posts.length && (
             <p className="text-center text-gray-500 dark:text-gray-400">No posts found.</p>

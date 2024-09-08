@@ -4,21 +4,20 @@ import { usePathname } from 'next/navigation'
 import headerNavLinks from '@/data/headerNavLinks'
 import Link from './Link'
 import MobileNav from './MobileNav'
-import { ListMinus } from 'lucide-react'
+import { Server } from 'lucide-react'
 
 const Header = () => {
   const pathname = usePathname()
-
   return (
     <header className="py-6">
-      <div className="container mx-auto max-w-4xl px-4">
+      <div className="container mx-auto max-w-3xl">
         <div className="flex items-center justify-between">
           <div className="flex items-center justify-center gap-2">
-            <ListMinus className="h-8 w-8 text-indigo-500" strokeWidth={2.5} />
+            <Server className="h-8 w-8 text-fuchsia-500" strokeWidth={2.5} />
             <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-100">
               <Link
                 href="/"
-                className="text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400"
+                className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-3xl text-transparent"
               >
                 Backend Almanac
               </Link>

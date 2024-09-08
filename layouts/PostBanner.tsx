@@ -9,6 +9,8 @@ import siteMetadata from '@/data/siteMetadata'
 import { Share2, ThumbsUp, Download, ChevronLeft, ChevronRight, Calendar } from 'lucide-react'
 import PostMinimalSkeletonLoader from '@/components/SkeletonLoader'
 import BreadCrumb from '@/components/BreadCrumb'
+import ProgressBar from '@/components/ProgresBar'
+import TableOfContents from '@/components/TOC'
 
 interface LayoutProps {
   content: CoreContent<Blog>
@@ -17,7 +19,15 @@ interface LayoutProps {
   prev?: { path: string; title: string }
   authorDetails?: { name: string; avatar?: string }[]
 }
-
+//TODO: Remove artificial Loading
+//
+//
+const headings = [
+  { id: 'section-1', text: 'Introduction' },
+  { id: 'section-2', text: 'Getting Started' },
+  { id: 'section-3', text: 'Advanced Topics' },
+  { id: 'section-4', text: 'Conclusion' },
+]
 const PostMinimal = ({ content, next, prev, authorDetails, children }: LayoutProps) => {
   const [isLoading, setIsLoading] = useState(true)
 
@@ -41,7 +51,9 @@ const PostMinimal = ({ content, next, prev, authorDetails, children }: LayoutPro
     : ''
 
   return (
-    <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-3xl sm:px-6 lg:px-2">
+      <ProgressBar />
+      <TableOfContents headings={headings} />
       <BreadCrumb />
       <article className="py-8">
         <header className="mb-8">

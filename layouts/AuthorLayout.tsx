@@ -13,12 +13,13 @@ export default function AuthorLayout({ children, content }: Props) {
 
   return (
     <>
-      <div className="mx-auto max-w-4xl divide-y divide-gray-200 dark:divide-gray-700">
-        <div className="space-y-2 pb-8 pt-6 md:space-y-5">
-          <h1 className="pl-2 font-extrabold leading-9 tracking-tight text-gray-800 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
+      <div className="mx-auto max-w-3xl ">
+        <div className="space-y-2 pb-6 pt-4">
+          <h1 className="gradient-text border-b pb-2 text-4xl font-extrabold leading-tight text-transparent sm:text-6xl sm:leading-tight">
             About
           </h1>
         </div>
+
         <div className="items-start space-y-2 xl:grid xl:grid-cols-3 xl:gap-x-8 xl:space-y-0 ">
           <div className="flex flex-col items-center space-x-2 pt-8">
             {avatar && (

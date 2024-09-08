@@ -16,9 +16,9 @@ export default async function Page() {
 
   return (
     <>
-      <div className="divide-mauve-200 dark:divide-mauve-800 mx-auto flex max-w-4xl flex-col items-start justify-start divide-y md:mt-24 md:flex-row md:items-center md:justify-center md:space-x-6 md:divide-y-0">
+      <div className=" mx-auto flex max-w-3xl flex-col items-start justify-start divide-y md:mt-24 md:flex-row md:items-center md:justify-center md:space-x-6 md:divide-y-0">
         <div className="space-x-2 pb-8 pt-6 md:space-y-3">
-          <h2 className="text-mauve-900 dark:text-mauve-50 text-2xl font-extrabold leading-8 tracking-tight sm:text-3xl sm:leading-9 md:border-r-2 md:px-6 md:text-4xl md:leading-10">
+          <h2 className=" gradient-text text-2xl font-extrabold leading-8  sm:text-3xl sm:leading-9 md:border-r-2 md:px-6 md:text-5xl md:leading-14">
             Things I blog about
           </h2>
         </div>

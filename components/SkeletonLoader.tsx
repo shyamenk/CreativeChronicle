@@ -2,7 +2,7 @@ import React from 'react'
 
 const PostMinimalSkeletonLoader = () => {
   return (
-    <div className="mx-auto max-w-3xl animate-pulse px-4 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-3xl animate-pulse px-4 sm:px-6 lg:px-2">
       <nav className="mb-2 text-gray-600">
         <ol className="flex items-center space-x-2">
           <li className="flex items-center">
