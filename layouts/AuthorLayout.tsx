@@ -13,10 +13,10 @@ export default function AuthorLayout({ children, content }: Props) {
 
   return (
     <>
-      <div className="mx-auto max-w-3xl ">
+      <div className="mx-auto mt-8 max-w-4xl ">
         <div className="space-y-2 pb-6 pt-4">
-          <h1 className="gradient-text border-b pb-2 text-4xl font-extrabold leading-tight text-transparent sm:text-6xl sm:leading-tight">
-            About
+          <h1 className="border-b pb-2 text-4xl font-semibold leading-tight text-gray-600 sm:text-4xl sm:leading-tight">
+            About the Author
           </h1>
         </div>
 

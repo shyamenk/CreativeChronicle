@@ -1,22 +1,21 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: 'Portfolio',
-  author: 'Shyam Kumar',
-  headerTitle: 'InsIghts',
-  description:
-    'Explore the creative journey through insightful articles, tips, and showcases on design, development, and more.',
+  title: 'Backend-Almanac',
+  author: 'Shyam',
+  headerTitle: 'Insights & Tips',
+  description: 'Streamline your workflow and save development time.',
   language: 'en-us',
   theme: 'system',
-  siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
-  siteRepo: 'https://github.com/timlrx/tailwind-nextjs-starter-blog',
+  siteUrl: 'https://personal-blog-neon-three.vercel.app/',
+  siteRepo: 'https://github.com/shyamenk/CreativeChronicle',
   siteLogo: '/static/images/avatar.png',
   socialBanner: '/static/images/twitter-card.png',
   mastodon: 'https://mastodon.social/@mastodonuser',
   email: 'shyamenk@gmail.com',
-  github: 'https://github.com',
+  github: 'https://github.com/shyamenk',
   x: 'https://twitter.com/x',
-  linkedin: 'https://www.linkedin.com',
-  instagram: 'https://www.instagram.com',
+  linkedin: 'https://www.linkedin.com/in/shyamenk/',
+  // instagram: 'https://www.instagram.com/shyamenk',
   locale: 'en-US',
   analytics: {
     // If you want to use an analytics provider you have to add it to the
@@ -43,7 +42,7 @@ const siteMetadata = {
   newsletter: {
     // supports mailchimp, buttondown, convertkit, klaviyo, revue, emailoctopus
     // Please add your .env file and modify it according to your selection
-    provider: 'buttondown',
+    provider: 'convertkit',
   },
   comments: {
     // If you want to use an analytics provider you have to add it to the
