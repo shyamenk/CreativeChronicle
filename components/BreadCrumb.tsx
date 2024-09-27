@@ -8,7 +8,7 @@ const BreadCrumb = () => {
   const pathSegments = pathname.split('/').filter(Boolean)
 
   return (
-    <nav className="mb-2 text-gray-600">
+    <nav className="mb-2 font-bold tracking-wide text-gray-600">
       <ol className="flex items-center space-x-2">
         <li>
           <Link href="/" className="flex items-center text-gray-600 hover:text-gray-800">

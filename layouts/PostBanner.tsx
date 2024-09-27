@@ -53,11 +53,11 @@ const PostMinimal = ({ content, next, prev, authorDetails, children }: LayoutPro
   return (
     <div className="mx-auto max-w-3xl sm:px-6 lg:px-2">
       <ProgressBar />
-      <TableOfContents headings={headings} />
+      {/* <TableOfContents headings={headings} /> */}
       <BreadCrumb />
       <article className="py-8">
-        <header className="mb-8">
-          <h1 className="mb-4 text-4xl font-bold leading-tight">{title}</h1>
+        <header className="mb-8 font-serif">
+          <h1 className="mb-4 font-sans text-4xl font-bold leading-tight">{title}</h1>
           <div className="mb-4 flex items-center text-gray-600">
             {authorDetails && authorDetails.length > 0 && (
               <div className="mr-6 flex items-center space-x-4">
@@ -85,13 +85,13 @@ const PostMinimal = ({ content, next, prev, authorDetails, children }: LayoutPro
                         </svg>
                       </span>
                     </div>
-                    <span className="ml-2 font-semibold text-indigo-500">{author.name}</span>
+                    <span className="ml-2 font-sans font-bold text-indigo-500">{author.name}</span>
                   </div>
                 ))}
               </div>
             )}
             {formattedDate && (
-              <div className="flex items-center space-x-2 text-gray-600">
+              <div className="flex items-center space-x-2 font-sans text-gray-600">
                 <Calendar size={16} />
                 <time dateTime={date}>{formattedDate}</time>
               </div>
@@ -120,7 +120,7 @@ const PostMinimal = ({ content, next, prev, authorDetails, children }: LayoutPro
             className="rounded-lg"
           />
         </div>
-        <div className="prose mb-8 max-w-none">{children}</div>
+        <div className="prose mb-8 max-w-none text-lg font-500">{children}</div>
         <hr className="mb-8 border-gray-200" />
         <nav className="flex items-center justify-between">
           {prev && prev.path && (

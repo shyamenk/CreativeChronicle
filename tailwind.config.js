@@ -16,7 +16,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['JetBrains Mono', ...fontFamily.sans],
+        sans: ['Open Sans', ...fontFamily.sans],
       },
       keyframes: {
         underline: {
@@ -52,7 +52,6 @@ module.exports = {
       colors: {
         primary: colors.indigo,
         gray: colors.gray,
-        mocha: '#1e1e1e',
       },
       typography: ({ theme }) => ({
         DEFAULT: {

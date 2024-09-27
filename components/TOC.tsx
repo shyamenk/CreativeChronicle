@@ -7,8 +7,6 @@ interface TableOfContentsProps {
   headings: { id: string; text: string }[]
 }
 
-//TODO: Try to modify
-
 const TableOfContents: React.FC<TableOfContentsProps> = ({ headings }) => {
   const [isOpen, setIsOpen] = useState(false)
 

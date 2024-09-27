@@ -1,8 +1,7 @@
 import 'css/tailwind.css'
 import 'pliny/search/algolia.css'
 import 'remark-github-blockquote-alert/alert.css'
-
-import { JetBrains_Mono } from 'next/font/google'
+import { Open_Sans } from 'next/font/google'
 import { Analytics, AnalyticsConfig } from 'pliny/analytics'
 import { SearchProvider, SearchConfig } from 'pliny/search'
 import Header from '@/components/Header'
@@ -12,10 +11,10 @@ import siteMetadata from '@/data/siteMetadata'
 import { ThemeProviders } from './theme-providers'
 import { Metadata } from 'next'
 
-const jetBrainsMono = JetBrains_Mono({
-  weight: ['400', '500', '600', '700'],
+const openSans = Open_Sans({
+  weight: ['300', '400', '500', '600', '700'],
   subsets: ['latin'],
-  variable: '--font-jetbrains-mono',
+  variable: '--font-open-sans',
 })
 
 export const metadata: Metadata = {
@@ -71,7 +70,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       <body
-        className={`${jetBrainsMono.className} bg-white pl-[calc(100vw-100%)] text-black antialiased dark:bg-[#191B28] dark:text-white`}
+        className={`${openSans.variable}bg-white pl-[calc(100vw-100%)] font-sans text-black antialiased dark:bg-[#191B28] dark:text-white`}
       >
         <ThemeProviders>
           <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />

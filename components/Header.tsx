@@ -13,12 +13,9 @@ const Header = () => {
       <div className="container mx-auto max-w-3xl">
         <div className="flex items-center justify-between">
           <div className="flex items-center justify-center gap-2">
-            <Server className="h-8 w-8 text-fuchsia-500" strokeWidth={2.5} />
+            <Server className="h-8 w-8 text-gray-700" strokeWidth={2.5} />
             <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-100">
-              <Link
-                href="/"
-                className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-3xl text-transparent"
-              >
+              <Link href="/" className="text-3xl font-bold text-gray-700 dark:text-gray-100">
                 Backend Almanac
               </Link>
             </h1>
@@ -40,11 +37,11 @@ const Header = () => {
                       }
                     `}
                   >
-                    <span className="relative z-10 transition-all duration-200 ease-out group-hover:text-lg">
+                    <span className="relative z-10 font-bold transition-all duration-200 ease-out group-hover:text-lg">
                       {link.title}
                     </span>
                     {isActive && (
-                      <span className="absolute bottom-0 left-1/2 h-0.5 w-full -translate-x-1/2   bg-indigo-600 dark:bg-indigo-400"></span>
+                      <span className="absolute bottom-0 left-1/2 h-0.5 w-full -translate-x-1/2 bg-indigo-600 dark:bg-indigo-400"></span>
                     )}
                   </Link>
                 )
