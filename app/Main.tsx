@@ -4,22 +4,12 @@ import Link from '@/components/Link'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import { formatDate } from 'pliny/utils/formatDate'
-import NewsletterForm from 'pliny/ui/NewsletterForm'
-import {
-  AlarmClockCheck,
-  ArrowRight,
-  Calendar,
-  ChevronRight,
-  Server,
-  Database,
-  Cloud,
-} from 'lucide-react'
+import { AlarmClockCheck, ArrowRight, Calendar, ChevronRight } from 'lucide-react'
 import Intro from '@/components/intro'
 import NewsletterSection from '@/components/NewletterSection'
 
 const MAX_DISPLAY = 6
 
-// Custom Card component
 const Card = ({ children, className = '' }) => (
   <div
     className={`overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all hover:border-indigo-300 hover:shadow-md dark:border-gray-700 dark:bg-gray-800 ${className}`}
@@ -40,7 +30,6 @@ const CardFooter = ({ children, className = '' }) => (
   <div className={`border-t border-gray-200 p-4 dark:border-gray-700 ${className}`}>{children}</div>
 )
 
-// Custom Button component
 const Button = ({ children, className = '', ...props }) => (
   <button
     className={`inline-flex items-center justify-center rounded-md border border-indigo-500 bg-indigo-500 px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:border-indigo-400 dark:bg-indigo-400 dark:text-gray-900 dark:hover:bg-indigo-300 ${className}`}
@@ -87,14 +76,15 @@ export default function Home({ posts }) {
                     </Link>
                   </h3>
                   <div className="mb-2 flex items-center space-x-2 text-xs text-gray-500 dark:text-gray-400">
-                    <div className="flex items-center">
-                      <Calendar size={12} className="mr-1" />
+                    <div className="flex items-center  font-bold text-indigo-500">
+                      <Calendar size={14} className="mr-1" />
                       <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
                     </div>
-                    <div className="flex items-center">
-                      <AlarmClockCheck size={12} className="mr-1" />
+                    <div className="h-4 border-r border-gray-300 dark:border-gray-700"></div>
+                    <div className="flex items-center font-bold text-indigo-500">
+                      <AlarmClockCheck size={14} className="mr-1" />
                       <span>{readingTime.text}</span>
-                    </div>
+                    </div>{' '}
                   </div>
                   <p className="mb-4 line-clamp-3 text-sm text-gray-600 dark:text-gray-300">
                     {summary}

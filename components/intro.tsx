@@ -1,5 +1,6 @@
 import React from 'react'
 import { BookOpen, TrendingUp, Users } from 'lucide-react'
+
 const FeatureItem = ({ Icon, title, description }) => (
   <div className="flex items-start">
     <div className="flex-shrink-0">
@@ -16,33 +17,38 @@ const FeatureItem = ({ Icon, title, description }) => (
 
 const Intro = () => (
   <div className="relative z-10 mb-24">
-    <h1
-      className={`mb-4 text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-3xl lg:text-4xl`}
-    >
-      Backend <span className="text-gray-600 dark:text-indigo-400">Almanac</span>
-    </h1>
-    <p className="mb-10 max-w-4xl text-lg text-gray-700 dark:text-gray-300">
-      A blog dedicated to exploring the depths of backend development, sharing insights, and
-      discussing the latest trends in server-side technologies. Whether you're a seasoned developer
-      or just starting your journey in backend engineering, Backend Almanac is your go-to resource
-      for in-depth articles, tutorials, and industry insights.
-    </p>
-    <div className="mb-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-      <FeatureItem
-        Icon={BookOpen}
-        title="In-Depth Articles"
-        description="Comprehensive guides and tutorials covering a wide range of backend topics."
-      />
-      <FeatureItem
-        Icon={TrendingUp}
-        title="Trending Technologies"
-        description="Stay updated with the latest backend frameworks, languages, and tools."
-      />
-      <FeatureItem
-        Icon={Users}
-        title="Community Insights"
-        description="Learn from real-world experiences shared by our community of developers."
-      />
+    <div className="relative overflow-hidden rounded-xl p-[2px]">
+      <div className=" absolute inset-0  h-full w-full animate-rotate rounded-full bg-[conic-gradient(#51576d_10deg,transparent_70deg)]"></div>
+      <div className="relative z-10 rounded-xl bg-white p-6 dark:bg-gray-900">
+        <h1
+          className={`mb-4 text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-3xl lg:text-4xl`}
+        >
+          Backend <span className="text-gray-600 dark:text-indigo-400">Almanac</span>
+        </h1>
+        <p className="mb-10 max-w-4xl text-lg text-gray-700 dark:text-gray-300">
+          A blog dedicated to exploring the depths of backend development, sharing insights, and
+          discussing the latest trends in server-side technologies. Whether you're a seasoned
+          developer or just starting your journey in backend engineering, Backend Almanac is your
+          go-to resource for in-depth articles, tutorials, and industry insights.
+        </p>
+        <div className="mb-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <FeatureItem
+            Icon={BookOpen}
+            title="In-Depth Articles"
+            description="Comprehensive guides and tutorials covering a wide range of backend topics."
+          />
+          <FeatureItem
+            Icon={TrendingUp}
+            title="Trending Technologies"
+            description="Stay updated with the latest backend frameworks, languages, and tools."
+          />
+          <FeatureItem
+            Icon={Users}
+            title="Community Insights"
+            description="Learn from real-world experiences shared by our community of developers."
+          />
+        </div>
+      </div>
     </div>
   </div>
 )

@@ -1,0 +1,152 @@
+---
+title: 'How I Deployed a Node.js API on AWS in Just 7 Minutes'
+date: '2024-09-27'
+tags: ['nodejs', 'aws', 'docker', 'serverless']
+draft: false
+layout: PostBanner
+images: ['/static/images/node.png']
+summary: 'Discover how to deploy a Node.js API on AWS App Runner quickly and easily, without the usual DevOps headaches.'
+---
+
+## The Lazy Developer's Confession
+
+I have a confession to make. I'm a lazy developer.
+
+Don't get me wrong – I love writing code. The thrill of solving problems and creating something from nothing? That's my jam. But when it comes to DevOps and server configuration? Not so much.
+
+So when I needed to deploy a Node.js API on AWS, I was on a mission. I wanted the simplest, fastest way possible. No fuss, no muss, just code to cloud in record time.
+
+## The DevOps Dilemma
+
+In the past, deploying on AWS felt like running a gauntlet.
+
+ECS, Fargate, EKS – a alphabet soup of services, each with its own learning curve. Provisioning infrastructure became a full-time job. Debugging cluster permissions? A nightmare. And don't even get me started on wrestling with Docker.
+
+It was a massive headache. All I wanted was to get my code live, not become a DevOps engineer!
+
+Sound familiar?
+
+## The Serverless Savior (Or So I Thought)
+
+Like many developers, I turned to serverless as my salvation.
+
+AWS Lambda seemed like the answer to all my prayers. And for a while, it was. I could focus on my code, letting AWS handle the rest.
+
+But then reality hit. My package size ballooned, crashing into Lambda's 250MB limit. Cold starts became the bane of my existence, slowing down my API responses.
+
+I was back to square one. There had to be a better way!
+
+## Enter the Unsung Hero: AWS App Runner
+
+That's when I stumbled upon AWS App Runner. The serverless container platform I didn't know I needed.
+
+With App Runner, I could run my Node app in a container without managing any infrastructure. At all.
+
+No clusters. No Docker files. No Kubernetes nightmares.
+
+Just sweet, sweet, serverless simplicity.
+
+## From Code to Cloud in 7 Minutes Flat
+
+Here's how I went from local development to a live API in just 7 minutes:
+
+1. I pushed my code to GitHub (1 minute)
+2. Navigated to AWS App Runner in the console (1 minute)
+3. Connected App Runner to my GitHub repo (2 minutes)
+4. Configured a few settings (2 minutes)
+5. Clicked "Deploy" and waited (1 minute)
+
+That was it. No joke.
+
+App Runner pulled my code, packaged it in a container, and deployed it. Automagically.
+
+My API was live at a public URL faster than I could make a cup of coffee.
+
+## The Code Behind the Magic
+
+Curious about what I deployed? Here's a peek at my simple Node.js API:
+
+```javascript
+const express = require('express')
+const app = express()
+const port = process.env.PORT || 3000
+
+app.get('/', (req, res) => {
+  res.json({ message: 'Welcome to my lightning-fast API!' })
+})
+
+app.get('/api/data', (req, res) => {
+  res.json({
+    data: 'This is some important data',
+    timestamp: new Date(),
+  })
+})
+
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`)
+})
+```
+
+Simple, right? But powerful enough to get the job done.
+
+## The Secret Sauce: Minimal Configuration
+
+App Runner needs just a hint of configuration to work its magic.
+
+First, I created a `Procfile` in my project root:
+
+```
+web: node app.js
+```
+
+Then, a bare-bones `package.json`:
+
+```json
+{
+  "name": "my-speedy-api",
+  "version": "1.0.0",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "scripts": {
+    "start": "node app.js"
+  }
+}
+```
+
+With these in place, App Runner knew exactly how to build and run my application.
+
+## The 7-Minute Deploy: Step by Step
+
+Want to try it yourself? Here's the play-by-play:
+
+1. Push your code to a GitHub repository.
+2. Head to the AWS App Runner console.
+3. Click "Create an App Runner service".
+4. Choose "Source code repository" and connect to your GitHub repo.
+5. Select the branch you want to deploy.
+6. For build settings, choose "Auto-detect" for Node.js.
+7. Specify the start command: `node app.js`
+8. Pick your instance size and scaling options.
+9. Review and create your service.
+
+Before you can say "full-stack developer," your API is live.
+
+## The Lazy Developer's Manifesto
+
+Look, I get it. As developers, we're wired to tinker, to optimize, to have control over every aspect of our stack.
+
+But sometimes, the best solution is the simplest one. The one that lets us be productively lazy. To focus on what really matters – our code.
+
+That's what App Runner gave me. The freedom to deploy fast and get back to the fun stuff.
+
+## Your Turn to Be Lazy (and Productive)
+
+So next time you're facing a complex AWS deployment, give App Runner a spin.
+
+Your inner lazy dev will thank you. Your productivity will skyrocket. And who knows? You might just deploy your next big idea in the time it takes to read this article.
+
+Now if you'll excuse me, I have some code to write. And thanks to App Runner, that's all I have to write.
+
+Happy coding, and even happier deploying!

@@ -1,7 +1,6 @@
 // @ts-check
 const { fontFamily } = require('tailwindcss/defaultTheme')
 const colors = require('tailwindcss/colors')
-
 /** @type {import("tailwindcss/types").Config } */
 module.exports = {
   content: [
@@ -23,9 +22,14 @@ module.exports = {
           '0%': { width: '0%', left: '50%' },
           '100%': { width: '50%', left: '25%' },
         },
+        rotate: {
+          '0%': { transform: 'rotate(0deg) scale(10)' },
+          '100%': { transform: 'rotate(-360deg) scale(10)' },
+        },
       },
       animation: {
         underline: 'underline 0.3s ease-out forwards',
+        rotate: 'rotate 10s linear infinite',
       },
       fontSize: {
         md: '1rem',
