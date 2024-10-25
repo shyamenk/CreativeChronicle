@@ -1,52 +1,36 @@
 import React from 'react'
-import { BookOpen, TrendingUp, Users } from 'lucide-react'
-
-const FeatureItem = ({ Icon, title, description }) => (
-  <div className="flex items-start">
-    <div className="flex-shrink-0">
-      <div className="flex h-12 w-12 items-center justify-center rounded-md bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-indigo-400">
-        <Icon className="h-6 w-6" />
-      </div>
-    </div>
-    <div className="ml-4">
-      <h3 className="text-lg font-medium text-gray-900 dark:text-gray-100">{title}</h3>
-      <p className="mt-2 text-base text-gray-600 dark:text-gray-400">{description}</p>
-    </div>
-  </div>
-)
 
 const Intro = () => (
   <div className="relative z-10 mb-24">
-    <div className="relative overflow-hidden rounded-xl p-[2px]">
-      <div className=" absolute inset-0  h-full w-full animate-rotate rounded-full bg-[conic-gradient(#51576d_10deg,transparent_70deg)]"></div>
-      <div className="relative z-10 rounded-xl bg-white p-6 dark:bg-gray-900">
-        <h1
-          className={`mb-4 text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-3xl lg:text-4xl`}
-        >
-          Backend <span className="text-gray-600 dark:text-indigo-400">Almanac</span>
-        </h1>
-        <p className="mb-10 max-w-4xl text-lg text-gray-700 dark:text-gray-300">
-          A blog dedicated to exploring the depths of backend development, sharing insights, and
-          discussing the latest trends in server-side technologies. Whether you're a seasoned
-          developer or just starting your journey in backend engineering, Backend Almanac is your
-          go-to resource for in-depth articles, tutorials, and industry insights.
-        </p>
-        <div className="mb-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          <FeatureItem
-            Icon={BookOpen}
-            title="In-Depth Articles"
-            description="Comprehensive guides and tutorials covering a wide range of backend topics."
-          />
-          <FeatureItem
-            Icon={TrendingUp}
-            title="Trending Technologies"
-            description="Stay updated with the latest backend frameworks, languages, and tools."
-          />
-          <FeatureItem
-            Icon={Users}
-            title="Community Insights"
-            description="Learn from real-world experiences shared by our community of developers."
-          />
+    <div className="relative overflow-hidden">
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+        <div className="animate-slow-spin from-indigo-300/8 h-[500px] w-[500px] rounded-full bg-gradient-to-r to-transparent blur-xl" />
+      </div>
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-40">
+        <div className="animate-reverse-slow-spin from-indigo-300/8 h-[300px] w-[300px] rounded-full bg-gradient-to-l to-transparent blur-lg" />
+      </div>
+      <div className="relative px-4">
+        <div className="mx-auto max-w-5xl">
+          <div className="mb-16 text-center">
+            <div className="inline-flex items-center rounded-full bg-indigo-500/10 px-6 py-2 text-sm text-indigo-500">
+              Welcome to the Future of Backend Development
+            </div>
+            <h1 className="mt-6 bg-gradient-to-br from-gray-900 to-gray-600 bg-clip-text text-5xl font-bold tracking-tight text-transparent dark:from-white dark:to-gray-400 sm:text-6xl lg:text-7xl">
+              Backend{' '}
+              <span className="relative">
+                <span className="absolute -inset-1 block bg-gradient-to-r from-indigo-500 to-indigo-600 opacity-20 blur-2xl" />
+                <span className="relative bg-gradient-to-r from-indigo-500 to-indigo-600 bg-clip-text text-transparent">
+                  Almanac
+                </span>
+              </span>
+            </h1>
+            <p className="mx-auto mt-8 max-w-4xl text-lg leading-relaxed text-gray-600 dark:text-gray-300">
+              Welcome to Backend Almanac: your authoritative source for backend development
+              insights. Dive into in-depth articles, tutorials, and the latest server-side trends.
+              Whether you're a seasoned pro or just starting out, we've got the resources you need
+              to elevate your backend engineering journey.
+            </p>
+          </div>
         </div>
       </div>
     </div>
