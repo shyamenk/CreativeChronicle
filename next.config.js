@@ -69,7 +69,7 @@ module.exports = () => {
       remotePatterns: [
         {
           protocol: 'https',
-          hostname: 'picsum.photos',
+          hostname: ['picsum.photos', 'us.umami.is'],
         },
       ],
     },
