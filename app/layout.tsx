@@ -10,6 +10,7 @@ import Footer from '@/components/Footer'
 import siteMetadata from '@/data/siteMetadata'
 import { ThemeProviders } from './theme-providers'
 import { Metadata } from 'next'
+import Script from 'next/script'
 
 const openSans = Open_Sans({
   weight: ['300', '400', '500', '600', '700'],
@@ -69,6 +70,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
       <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
+      <Script
+        src="https://cloud.umami.is/script.js"
+        data-website-id="e742e652-bd05-48b4-9a51-7f3e442980b1"
+        defer
+        strategy="afterInteractive"
+      />
       <body
         className={`${openSans.variable}bg-white pl-[calc(100vw-100%)] font-sans text-black antialiased dark:bg-[#191B28] dark:text-white`}
       >
