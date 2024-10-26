@@ -69,7 +69,11 @@ module.exports = () => {
       remotePatterns: [
         {
           protocol: 'https',
-          hostname: ['picsum.photos', 'us.umami.is'],
+          hostname: 'picsum.photos',
+        },
+        {
+          protocol: 'https',
+          hostname: 'us.umami.is',
         },
       ],
     },
@@ -81,7 +85,7 @@ module.exports = () => {
         },
       ]
     },
-    webpack: (config, options) => {
+    webpack: (config) => {
       config.module.rules.push({
         test: /\.svg$/,
         use: ['@svgr/webpack'],
