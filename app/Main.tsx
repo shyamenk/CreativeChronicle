@@ -128,7 +128,7 @@ export default function Home({ posts }) {
           </Link>
         </div>
       )}
-      <NewsletterSection siteMetadata={siteMetadata} />
+      {/* <NewsletterSection siteMetadata={siteMetadata} /> */}
     </div>
   )
 }

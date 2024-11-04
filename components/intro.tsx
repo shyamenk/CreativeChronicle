@@ -12,7 +12,7 @@ const Intro = () => (
       <div className="relative px-4">
         <div className="mx-auto max-w-5xl">
           <div className="mb-16 text-center">
-            <div className="inline-flex items-center rounded-full bg-indigo-500/10 px-6 py-2 text-sm text-indigo-500">
+            <div className="inline-flex items-center rounded-full bg-indigo-500/10 px-6 py-2 text-sm text-indigo-700">
               Welcome to the Future of Backend Development
             </div>
             <h1 className="mt-6 bg-gradient-to-br from-gray-900 to-gray-600 bg-clip-text text-5xl font-bold tracking-tight text-transparent dark:from-white dark:to-gray-400 sm:text-6xl lg:text-7xl">

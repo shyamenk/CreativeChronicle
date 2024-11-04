@@ -22,17 +22,17 @@ interface LayoutProps {
 const PostMinimal = ({ content, next, prev, authorDetails, children }: LayoutProps) => {
   const [isLoading, setIsLoading] = useState(true)
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false)
-    }, 1000)
-    return () => clearTimeout(timer)
-  }, [])
-
-  if (isLoading) {
-    return <PostMinimalSkeletonLoader />
-  }
-
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setIsLoading(false)
+  //   }, 1000)
+  //   return () => clearTimeout(timer)
+  // }, [])
+  //
+  // if (isLoading) {
+  //   return <PostMinimalSkeletonLoader />
+  // }
+  //
   const { slug, title, images, date } = content
   const displayImage =
     images && images.length > 0 ? images[0] : 'https://picsum.photos/seed/picsum/800/400'
@@ -63,7 +63,7 @@ const PostMinimal = ({ content, next, prev, authorDetails, children }: LayoutPro
                           className="inline-block rounded-full"
                         />
                       )}
-                      <span className="absolute -right-1 -top-1.5">
+                      <span className="absolute -right-1 -top-1">
                         <svg
                           className="h-4 w-4 fill-indigo-500"
                           viewBox="0 0 24 24"
@@ -86,19 +86,19 @@ const PostMinimal = ({ content, next, prev, authorDetails, children }: LayoutPro
                 <time dateTime={date}>{formattedDate}</time>
               </div>
             )}
-            <div className="ml-auto flex space-x-2">
-              <button className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition hover:bg-gray-200 hover:text-indigo-500">
-                <Share2 size={18} />
-              </button>
-
-              <button className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition hover:bg-gray-200">
-                <ThumbsUp size={18} />
-              </button>
-
-              <button className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition hover:bg-gray-200">
-                <Download size={16} />
-              </button>
-            </div>{' '}
+            {/* <div className="ml-auto flex space-x-2"> */}
+            {/*   <button className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition hover:bg-gray-200 hover:text-indigo-500"> */}
+            {/*     <Share2 size={18} /> */}
+            {/*   </button> */}
+            {/**/}
+            {/*   <button className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition hover:bg-gray-200"> */}
+            {/*     <ThumbsUp size={18} /> */}
+            {/*   </button> */}
+            {/**/}
+            {/*   <button className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition hover:bg-gray-200"> */}
+            {/*     <Download size={16} /> */}
+            {/*   </button> */}
+            {/* </div>{' '} */}
           </div>
         </header>
         <div className="relative mb-8 aspect-[16/9]">
