@@ -28,14 +28,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: siteMetadata.title,
     description: siteMetadata.description,
-    url: './',
+    url: siteMetadata.siteUrl,
     siteName: siteMetadata.title,
     images: [siteMetadata.socialBanner],
     locale: 'en_US',
     type: 'website',
   },
   alternates: {
-    canonical: './',
+    canonical: siteMetadata.siteUrl,
     types: {
       'application/rss+xml': `${siteMetadata.siteUrl}/feed.xml`,
     },
@@ -77,7 +77,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         strategy="afterInteractive"
       />
       <body
-        className={`${openSans.variable}bg-white pl-[calc(100vw-100%)] font-sans text-black antialiased dark:bg-[#191B28] dark:text-white`}
+        className={`${openSans.variable} bg-white pl-[calc(100vw-100%)] font-sans text-black antialiased dark:bg-[#191B28] dark:text-white`}
       >
         <ThemeProviders>
           <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />

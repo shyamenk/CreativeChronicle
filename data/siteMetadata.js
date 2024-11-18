@@ -6,7 +6,7 @@ const siteMetadata = {
   description: 'Streamline your workflow and save development time.',
   language: 'en-us',
   theme: 'system',
-  siteUrl: 'https://backendalmanc.in',
+  siteUrl: 'https://backendalmanac.in',
   siteRepo: 'https://github.com/shyamenk/CreativeChronicle',
   siteLogo: '/static/images/avatar.png',
   socialBanner: '/static/images/twitter-card.png',

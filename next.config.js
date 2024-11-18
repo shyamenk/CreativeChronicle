@@ -74,6 +74,10 @@ module.exports = () => {
           protocol: 'https',
           hostname: 'us.umami.is',
         },
+        {
+          protocol: 'https',
+          hostname: 'backendalmanac.in',
+        },
       ],
     },
     async headers() {
