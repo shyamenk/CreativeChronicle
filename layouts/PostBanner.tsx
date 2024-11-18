@@ -9,7 +9,6 @@ import siteMetadata from '@/data/siteMetadata'
 import { Share2, ChevronLeft, ChevronRight, Calendar } from 'lucide-react'
 import BreadCrumb from '@/components/BreadCrumb'
 import ProgressBar from '@/components/ProgresBar'
-import Head from 'next/head'
 
 interface LayoutProps {
   content: CoreContent<Blog>
@@ -20,11 +19,11 @@ interface LayoutProps {
 }
 
 const PostMinimal = ({ content, next, prev, authorDetails, children }: LayoutProps) => {
-  const { slug, title, images, date, summary } = content
+  const { slug, title, images, date } = content
 
   const displayImage = images?.[0]
     ? `${siteMetadata.siteUrl}${images[0].startsWith('/') ? images[0] : `/${images[0]}`}`
-    : `${siteMetadata.siteUrl}/static/images/default.png`
+    : `${siteMetadata.siteUrl}/static/images/default-image.png`
 
   const canonicalUrl = `${siteMetadata.siteUrl}/blog/${slug}`
 
@@ -42,36 +41,6 @@ const PostMinimal = ({ content, next, prev, authorDetails, children }: LayoutPro
 
   return (
     <>
-      <Head>
-        {/* Basic Meta Tags */}
-        <title>{title}</title>
-        <meta name="description" content={summary} />
-        <link rel="canonical" href={canonicalUrl} />
-
-        {/* OpenGraph Meta Tags */}
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={summary} />
-        <meta property="og:url" content={canonicalUrl} />
-        <meta property="og:site_name" content={siteMetadata.title} />
-        <meta property="og:image" content={displayImage} />
-        <meta property="og:image:secure_url" content={displayImage} />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content={title} />
-        <meta property="og:image:type" content="image/png" />
-        <meta property="article:published_time" content={date} />
-        <meta property="article:author" content={siteMetadata.author} />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content={siteMetadata.twitter} />
-        <meta name="twitter:creator" content={siteMetadata.twitter} />
-        <meta name="twitter:title" content={title} />
-        <meta name="twitter:description" content={summary} />
-        <meta name="twitter:image" content={displayImage} />
-        <meta name="twitter:domain" content={new URL(siteMetadata.siteUrl).hostname} />
-      </Head>
-
       <div className="mx-auto max-w-3xl sm:px-6 lg:px-2">
         <ProgressBar />
         <BreadCrumb />
