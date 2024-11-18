@@ -1,13 +1,12 @@
 'use client'
-import React, { ReactNode, useState, useEffect } from 'react'
+import React, { ReactNode } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { CoreContent } from 'pliny/utils/contentlayer'
 import type { Blog } from 'contentlayer/generated'
 import Comments from '@/components/Comments'
 import siteMetadata from '@/data/siteMetadata'
-import { Share2, ThumbsUp, Download, ChevronLeft, ChevronRight, Calendar } from 'lucide-react'
-import PostMinimalSkeletonLoader from '@/components/SkeletonLoader'
+import { Share2, ChevronLeft, ChevronRight, Calendar } from 'lucide-react'
 import BreadCrumb from '@/components/BreadCrumb'
 import ProgressBar from '@/components/ProgresBar'
 
@@ -16,23 +15,10 @@ interface LayoutProps {
   children?: ReactNode
   next?: { path: string; title: string }
   prev?: { path: string; title: string }
-  authorDetails?: { name: string; avatar?: string }[]
+  authorDetails?: { name: string; avatar?: string; twitter?: string }[]
 }
 
 const PostMinimal = ({ content, next, prev, authorDetails, children }: LayoutProps) => {
-  const [isLoading, setIsLoading] = useState(true)
-
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     setIsLoading(false)
-  //   }, 1000)
-  //   return () => clearTimeout(timer)
-  // }, [])
-  //
-  // if (isLoading) {
-  //   return <PostMinimalSkeletonLoader />
-  // }
-  //
   const { slug, title, images, date } = content
   const displayImage =
     images && images.length > 0 ? images[0] : 'https://picsum.photos/seed/picsum/800/400'
@@ -40,6 +26,14 @@ const PostMinimal = ({ content, next, prev, authorDetails, children }: LayoutPro
   const formattedDate = date
     ? new Date(date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
     : ''
+
+  const handleShare = () => {
+    const shareTitle = `${title}`
+    const shareLink = `${siteMetadata.siteUrl}/posts/${slug}`
+    const formattedMessage = `${shareTitle}\n\n📖 Read More: ${shareLink} \n`
+    const shareURL = `https://x.com/intent/tweet?text=${encodeURIComponent(formattedMessage)}`
+    window.open(shareURL, '_blank', 'noopener,noreferrer')
+  }
 
   return (
     <div className="mx-auto max-w-3xl sm:px-6 lg:px-2">
@@ -58,22 +52,11 @@ const PostMinimal = ({ content, next, prev, authorDetails, children }: LayoutPro
                         <Image
                           src={author.avatar}
                           alt={author.name}
-                          width={40}
-                          height={40}
-                          className="inline-block rounded-full"
+                          width={44}
+                          height={44}
+                          className="inline-block rounded-full border-2 border-indigo-500 p-0.5"
                         />
                       )}
-                      <span className="absolute -right-1 -top-1">
-                        <svg
-                          className="h-4 w-4 fill-indigo-500"
-                          viewBox="0 0 24 24"
-                          aria-label="Verified account"
-                        >
-                          <g>
-                            <path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.818-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.437 2.25c-.415-.165-.866-.25-1.336-.25-2.11 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.018-2.147 3.6 0 1.495.782 2.798 1.942 3.486-.02.17-.032.34-.032.514 0 2.21 1.708 4 3.818 4 .47 0 .92-.086 1.335-.25.62 1.334 1.926 2.25 3.437 2.25 1.512 0 2.818-.916 3.437-2.25.415.163.865.248 1.336.248 2.11 0 3.818-1.79 3.818-4 0-.174-.012-.344-.033-.513 1.158-.687 1.943-1.99 1.943-3.484zm-6.616-3.334l-4.334 6.5c-.145.217-.382.334-.625.334-.143 0-.288-.04-.416-.126l-.115-.094-2.415-2.415c-.293-.293-.293-.768 0-1.06s.768-.294 1.06 0l1.77 1.767 3.825-5.74c.23-.345.696-.436 1.04-.207.346.23.44.696.21 1.04z"></path>
-                          </g>
-                        </svg>
-                      </span>
                     </div>
                     <span className="ml-2 font-sans font-bold text-indigo-500">{author.name}</span>
                   </div>
@@ -86,19 +69,31 @@ const PostMinimal = ({ content, next, prev, authorDetails, children }: LayoutPro
                 <time dateTime={date}>{formattedDate}</time>
               </div>
             )}
-            {/* <div className="ml-auto flex space-x-2"> */}
-            {/*   <button className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition hover:bg-gray-200 hover:text-indigo-500"> */}
-            {/*     <Share2 size={18} /> */}
-            {/*   </button> */}
-            {/**/}
-            {/*   <button className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition hover:bg-gray-200"> */}
-            {/*     <ThumbsUp size={18} /> */}
-            {/*   </button> */}
-            {/**/}
-            {/*   <button className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition hover:bg-gray-200"> */}
-            {/*     <Download size={16} /> */}
-            {/*   </button> */}
-            {/* </div>{' '} */}
+            <div className="ml-auto flex space-x-2">
+              {authorDetails?.[0]?.twitter && (
+                <a
+                  href={`https://x.com/shyamenk07`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition hover:bg-gray-200 hover:text-indigo-500"
+                >
+                  <svg
+                    className="h-4 w-4"
+                    viewBox="0 0 512 512"
+                    fill="currentColor"
+                    aria-label="Twitter/X Profile"
+                  >
+                    <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" />
+                  </svg>
+                </a>
+              )}
+              <button
+                onClick={handleShare}
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition hover:bg-gray-200 hover:text-indigo-500"
+              >
+                <Share2 size={18} />
+              </button>
+            </div>
           </div>
         </header>
         <div className="relative mb-8 aspect-[16/9]">
@@ -134,7 +129,7 @@ const PostMinimal = ({ content, next, prev, authorDetails, children }: LayoutPro
               <ChevronRight size={36} className="ml-2" />
             </Link>
           )}
-        </nav>{' '}
+        </nav>
       </article>
       {siteMetadata.comments && (
         <div className="py-8" id="comment">

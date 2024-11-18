@@ -12,6 +12,7 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@giscus/react": "^3.0.0",
     "@headlessui/react": "1.7.19",
     "@next/bundle-analyzer": "14.2.3",
     "@radix-ui/react-slot": "^1.1.0",
