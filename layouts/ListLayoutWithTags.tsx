@@ -85,19 +85,19 @@ export default function ListLayoutWithTags({
     <>
       <div className="mx-auto max-w-3xl">
         <div className=" pb-6 pt-6">
-          <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:hidden sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
+          <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 sm:hidden sm:text-4xl sm:leading-10 md:text-6xl md:leading-14 dark:text-gray-100">
             {title}
           </h1>
         </div>
         <div className="flex sm:space-x-12 md:mx-auto md:max-w-4xl">
-          <div className="hidden h-full max-h-screen min-w-[280px] max-w-[280px] flex-wrap overflow-auto rounded-md bg-indigo-50 pt-5 shadow-md dark:bg-[#1e1e2e] sm:flex">
+          <div className="hidden h-full max-h-screen min-w-[280px] max-w-[280px] flex-wrap overflow-auto rounded-md bg-indigo-50 pt-5 shadow-md sm:flex">
             <div className="px-6 py-4">
               {pathname.startsWith('/blog') ? (
                 <h3 className="font-bold uppercase text-indigo-500">All Articles</h3>
               ) : (
                 <Link
                   href={`/blog`}
-                  className="font-bold uppercase text-gray-700 hover:text-indigo-500 dark:text-gray-300 dark:hover:text-indigo-500"
+                  className="font-bold uppercase text-gray-700 hover:text-indigo-500"
                 >
                   All Articles
                 </Link>
@@ -113,7 +113,7 @@ export default function ListLayoutWithTags({
                       ) : (
                         <Link
                           href={`/tags/${slug(t)}`}
-                          className="px-3 py-2 text-sm font-medium uppercase text-gray-500 hover:text-indigo-500 dark:text-gray-300 dark:hover:text-indigo-500"
+                          className="px-3 py-2 text-sm font-medium uppercase text-gray-500 hover:text-indigo-500"
                           aria-label={`View posts tagged ${t}`}
                         >
                           {`${t} (${tagCounts[t]})`}
@@ -134,14 +134,14 @@ export default function ListLayoutWithTags({
                     <article className="flex flex-col space-y-2 xl:space-y-0">
                       <dl>
                         <dt className="sr-only">Published on</dt>
-                        <dd className="mb-2 text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
+                        <dd className="mb-2 text-base font-medium leading-6 text-gray-500">
                           <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
                         </dd>
                       </dl>
                       <div className="space-y-4">
                         <div>
                           <h2 className="mb-2 text-2xl  font-bold leading-8 tracking-tight">
-                            <Link href={`/${path}`} className="text-gray-900 dark:text-gray-100">
+                            <Link href={`/${path}`} className="text-gray-900 ">
                               {title}
                             </Link>
                           </h2>
@@ -149,9 +149,7 @@ export default function ListLayoutWithTags({
                             {tags?.map((tag) => <Tag key={tag} text={tag} />)}
                           </div>
                         </div>
-                        <div className="prose max-w-none text-md text-gray-500 dark:text-gray-400">
-                          {summary}
-                        </div>
+                        <div className="prose max-w-none text-md text-gray-500 ">{summary}</div>
                       </div>
                     </article>
                   </li>

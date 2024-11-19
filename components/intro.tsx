@@ -15,8 +15,8 @@ const Intro = () => (
             <div className="inline-flex items-center rounded-full bg-indigo-500/10 px-6 py-2 text-sm text-indigo-700">
               Welcome to the Future of Backend Development
             </div>
-            <h1 className="mt-6 bg-gradient-to-br from-gray-900 to-gray-600 bg-clip-text text-5xl font-bold tracking-tight text-transparent dark:from-white dark:to-gray-400 sm:text-6xl lg:text-7xl">
-              Backend{' '}
+            <h1 className="mt-6 bg-gradient-to-br from-gray-900 to-gray-600 bg-clip-text text-5xl font-bold tracking-tight text-transparent sm:text-6xl lg:text-7xl">
+              Backend
               <span className="relative">
                 <span className="absolute -inset-1 block bg-gradient-to-r from-indigo-500 to-indigo-600 opacity-20 blur-2xl" />
                 <span className="relative bg-gradient-to-r from-indigo-500 to-indigo-600 bg-clip-text text-transparent">
@@ -24,7 +24,7 @@ const Intro = () => (
                 </span>
               </span>
             </h1>
-            <p className="mx-auto mt-8 max-w-4xl text-lg leading-relaxed text-gray-600 dark:text-gray-300">
+            <p className="mx-auto mt-8 max-w-4xl text-lg leading-relaxed text-gray-600">
               Welcome to Backend Almanac: your authoritative source for backend development
               insights. Dive into in-depth articles, tutorials, and the latest server-side trends.
               Whether you're a seasoned pro or just starting out, we've got the resources you need

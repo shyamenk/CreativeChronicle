@@ -18,7 +18,7 @@ export default async function Page() {
     <>
       <div className="mx-auto flex max-w-3xl flex-col items-start justify-start divide-y md:mt-24 md:flex-row md:items-center md:justify-center md:space-x-6 md:divide-y-0">
         <div className="space-x-2 pb-8 pt-6 md:space-y-3">
-          <h2 className="text-2xl font-semibold leading-8 text-gray-900 dark:text-gray-100 sm:text-3xl sm:leading-9 md:border-r-2 md:px-6 md:text-5xl md:leading-14">
+          <h2 className="text-2xl font-semibold leading-8 text-gray-900 sm:text-3xl sm:leading-9 md:border-r-2 md:px-6 md:text-5xl md:leading-14 dark:text-gray-100">
             Things I blog about
           </h2>
         </div>
@@ -31,7 +31,7 @@ export default async function Page() {
               <Tag text={t} />
               <Link
                 href={`/tags/${slug(t)}`}
-                className="ml-2 text-sm font-semibold uppercase text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-gray-100"
+                className="ml-2 text-sm font-semibold uppercase text-gray-600 hover:text-gray-800"
                 aria-label={`View posts tagged ${t}`}
               >
                 {` (${tagCounts[t]})`}
