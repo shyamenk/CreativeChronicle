@@ -30,7 +30,14 @@ export const metadata: Metadata = {
     description: siteMetadata.description,
     url: siteMetadata.siteUrl,
     siteName: siteMetadata.title,
-    images: [siteMetadata.socialBanner],
+    images: [
+      {
+        url: siteMetadata.socialBanner,
+        width: 1200,
+        height: 630,
+        alt: siteMetadata.title,
+      },
+    ],
     locale: 'en_US',
     type: 'website',
   },
@@ -52,30 +59,26 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: siteMetadata.title,
     card: 'summary_large_image',
+    title: siteMetadata.title,
+    description: siteMetadata.description,
     images: [siteMetadata.socialBanner],
+    creator: siteMetadata.twitter,
   },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang={siteMetadata.language} suppressHydrationWarning>
-      <link rel="apple-touch-icon" sizes="76x76" href="/static/favicons/apple-touch-icon.png" />
-      <link rel="icon" type="image/png" sizes="32x32" href="/static/favicons/favicon-32x32.png" />
-      <link rel="icon" type="image/png" sizes="16x16" href="/static/favicons/favicon-16x16.png" />
-      <link rel="manifest" href="/static/favicons/site.webmanifest" />
-      <link rel="mask-icon" href="/static/favicons/safari-pinned-tab.svg" color="#5bbad5" />
-      <meta name="msapplication-TileColor" content="#000000" />
-      {/* <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" /> */}
-      {/* <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" /> */}
-      <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
-      <Script
-        src="https://cloud.umami.is/script.js"
-        data-website-id="e742e652-bd05-48b4-9a51-7f3e442980b1"
-        defer
-        strategy="afterInteractive"
-      />
+      <head>
+        <link rel="apple-touch-icon" sizes="76x76" href="/static/favicons/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/static/favicons/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/static/favicons/favicon-16x16.png" />
+        <link rel="manifest" href="/static/favicons/site.webmanifest" />
+        <link rel="mask-icon" href="/static/favicons/safari-pinned-tab.svg" color="#5bbad5" />
+        <meta name="msapplication-TileColor" content="#000000" />
+        <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
+      </head>
       <body
         className={`${openSans.variable} bg-white pl-[calc(100vw-100%)] font-sans text-black antialiased`}
       >
@@ -91,6 +94,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </div>
           </SectionContainer>
         </ThemeProviders>
+        <Script
+          src="https://cloud.umami.is/script.js"
+          data-website-id="e742e652-bd05-48b4-9a51-7f3e442980b1"
+          defer
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   )

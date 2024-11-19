@@ -9,7 +9,7 @@ const siteMetadata = {
   siteUrl: 'https://backendalmanac.in',
   siteRepo: 'https://github.com/shyamenk/CreativeChronicle',
   siteLogo: '/static/images/avatar.png',
-  socialBanner: '/static/images/twitter-card.png',
+  socialBanner: '/static/images/image.png',
   email: 'shyamenk@gmail.com',
   github: 'https://github.com/shyamenk',
   x: 'https://x.com/shyamenk07',

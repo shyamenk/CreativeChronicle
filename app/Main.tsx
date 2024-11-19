@@ -41,12 +41,14 @@ const Button = ({ children, className = '', ...props }) => (
 
 export default function Home({ posts }) {
   return (
-    <div className="container mx-auto max-w-4xl px-4 py-16">
+    <div className="container mx-auto px-4 py-8 sm:max-w-xl md:max-w-2xl lg:max-w-4xl">
       <Intro />
-      <section className="mb-16">
-        <h2 className="mb-8 text-2xl font-bold text-gray-900">Recent Articles</h2>
-        {!posts.length && <p className="text-center text-lg text-gray-500">No posts found.</p>}
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2">
+      <section className="mb-12">
+        <h2 className="mb-6 text-xl font-bold text-gray-900 sm:text-2xl">Recent Articles</h2>
+        {!posts.length && <p className="text-center text-base text-gray-500">No posts found.</p>}
+
+        {/* Responsive Grid Layout */}
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-2">
           {posts.slice(0, MAX_DISPLAY).map((post) => {
             const { slug, date, title, summary, tags, readingTime, images } = post
             return (
@@ -58,45 +60,52 @@ export default function Home({ posts }) {
                       alt={title}
                       width={400}
                       height={225}
-                      className="aspect-video w-full object-cover"
+                      className="aspect-video w-full rounded-t-lg object-cover"
+                      priority
                     />
                   </Link>
                 </CardHeader>
-                <CardContent className="flex-grow">
-                  <h3 className="mb-2 line-clamp-2 text-lg font-semibold">
+                <CardContent className="flex-grow space-y-2">
+                  <h3 className="line-clamp-2 text-base font-semibold sm:text-lg">
                     <Link href={`/blog/${slug}`} className="text-gray-900 hover:text-indigo-600">
                       {title}
                     </Link>
                   </h3>
-                  <div className="mb-2 flex items-center space-x-2 text-xs text-gray-500">
+
+                  {/* Responsive Metadata */}
+                  <div className="flex flex-wrap items-center space-x-2 text-xs text-gray-500">
                     <div className="flex items-center font-bold text-indigo-500">
-                      <Calendar size={14} className="mr-1" />
+                      <Calendar size={12} className="mr-1" />
                       <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
                     </div>
-                    <div className="h-4 border-r border-gray-300"></div>
+                    <div className="h-3 border-r border-gray-300"></div>
                     <div className="flex items-center font-bold text-indigo-500">
-                      <AlarmClockCheck size={14} className="mr-1" />
+                      <AlarmClockCheck size={12} className="mr-1" />
                       <span>{readingTime.text}</span>
                     </div>
                   </div>
-                  <p className="mb-4 line-clamp-3 text-sm text-gray-600">{summary}</p>
-                  <div className="flex flex-wrap gap-2">
+
+                  <p className="line-clamp-3 text-xs text-gray-600 sm:text-sm">{summary}</p>
+
+                  {/* Responsive Tag Layout */}
+                  <div className="flex flex-wrap items-center gap-1.5">
                     {tags.slice(0, 2).map((tag) => (
-                      <Tag key={tag} text={tag} />
+                      <Tag key={tag} text={tag} className="text-xs" />
                     ))}
                     {tags.length > 2 && (
                       <span className="text-xs text-gray-500">+{tags.length - 2} more</span>
                     )}
                   </div>
                 </CardContent>
-                <CardFooter>
+
+                <CardFooter className="px-3 py-2.5">
                   <Link
                     href={`/blog/${slug}`}
-                    className="group inline-flex items-center text-sm font-medium text-indigo-600 hover:text-indigo-500"
+                    className="group inline-flex items-center text-xs font-medium text-indigo-600 hover:text-indigo-500 sm:text-sm"
                   >
                     Read more
                     <ChevronRight
-                      size={16}
+                      size={14}
                       className="ml-1 transition-transform group-hover:translate-x-1"
                     />
                   </Link>
@@ -108,16 +117,15 @@ export default function Home({ posts }) {
       </section>
 
       {posts.length > MAX_DISPLAY && (
-        <div className="mb-16 text-center">
+        <div className="mb-8 text-center">
           <Link href="/blog" passHref>
-            <Button as="a">
+            <Button as="a" className="px-3 py-1.5 text-sm sm:px-4 sm:py-2">
               View all posts
-              <ArrowRight size={16} className="ml-2" />
+              <ArrowRight size={14} className="ml-1.5 sm:ml-2" />
             </Button>
           </Link>
         </div>
       )}
-      {/* <NewsletterSection siteMetadata={siteMetadata} /> */}
     </div>
   )
 }
