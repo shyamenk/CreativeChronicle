@@ -1,6 +1,6 @@
 ---
 title: "The Internet's Hidden Language http://"
-date: '2024-10-25'
+date: '2024-11-02'
 tags: ['Web']
 draft: false
 layout: PostBanner
@@ -21,11 +21,15 @@ At its core, HTTP is a request-response protocol that enables two key actions:
 1. Clients (such as web browsers) make requests for resources
 2. Servers respond with the requested data or appropriate status messages
 
+![Request Response Cycle](/static/images/web/1.png)
+
 This simple, yet powerful model is the foundation upon which the web is built, powering everything from basic webpage loads to complex API interactions.
 
 ## Understanding the HTTP Flow
 
-### Establishing the Connection: The TCP Handshake
+### The TCP Handshake
+
+![Handshake](/static/images/web/2.png)
 
 Before any HTTP communication can begin, a reliable TCP connection must be established through a three-way handshake:
 
@@ -48,6 +52,8 @@ HTTP defines several methods for client-server interaction, each with a specific
 | PUT    | Update existing resources | Updating profile information |
 | DELETE | Remove resources          | Deleting a post              |
 
+![Methods](/static/images/web/3.png)
+
 ### The Server's Response Language: Status Codes
 
 Servers communicate the results of client requests through a set of standardized status codes, which can be categorized as follows:
@@ -59,6 +65,8 @@ Servers communicate the results of client requests through a set of standardized
 | 4xx Client Errors | The client made a bad request.   |
 | 5xx Server Errors | The server encountered an error. |
 
+![Status Codes](/static/images/web/4.png)
+
 ## Securing the Web: HTTPS
 
 To ensure the security and privacy of web-based communications, HTTP is often combined with SSL/TLS encryption, resulting in HTTPS (Hypertext Transfer Protocol Secure). HTTPS adds three essential security features:
@@ -66,6 +74,8 @@ To ensure the security and privacy of web-based communications, HTTP is often co
 1. **Encryption**: Protects data in transit, preventing eavesdropping.
 2. **Authentication**: Verifies the identity of the server, ensuring you're communicating with the correct entity.
 3. **Integrity**: Ensures that the data transmitted has not been tampered with during transit.
+
+![Security](/static/images/web/5.png)
 
 This security-enhanced protocol is now the standard for most web-based applications, and it's enforced through various security headers, such as:
 
@@ -158,3 +168,9 @@ The evolution of HTTP continues with the emergence of HTTP/3, which is built on 
 - Better support for modern web requirements and mobile-friendly features
 
 As the web continues to evolve, the advancements in HTTP protocols will play a crucial role in shaping the future of online experiences.
+
+#### Thank You for Reading! 🙏
+
+If you found this valuable and want to dive deeper into web performance and optimization tips, let’s connect! 🚀
+
+👉 **Follow me on [X](https://x.com/shyamenk07)** for more insights, updates, and practical advice.
