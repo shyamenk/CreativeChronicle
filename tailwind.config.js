@@ -11,7 +11,7 @@ module.exports = {
     './layouts/**/*.{js,ts,tsx}',
     './data/**/*.mdx',
   ],
-  darkMode: 'class',
+  // darkMode: 'class',
   theme: {
     extend: {
       fontFamily: {
