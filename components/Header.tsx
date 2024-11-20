@@ -11,7 +11,7 @@ const Header = () => {
   const pathname = usePathname()
   return (
     <header className="py-6">
-      <div className="container mx-auto max-w-3xl">
+      <div className="container mx-auto max-w-3xl bg-transparent">
         <div className="flex items-center justify-between">
           <div className="flex items-center justify-center gap-2">
             <Server className="h-8 w-8 text-gray-700" strokeWidth={2.5} />

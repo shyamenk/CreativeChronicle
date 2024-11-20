@@ -1,48 +1,54 @@
 import React from 'react'
 
-const Intro = () => (
-  <div className="relative z-10 mb-24">
-    <div className="relative overflow-hidden">
-      {/* Decorative Animated Background Elements */}
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-        <div className="animate-slow-spin from-indigo-300/8 h-[25vw] w-[25vw] rounded-full bg-gradient-to-r to-transparent blur-xl" />
-      </div>
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-40">
-        <div className="animate-reverse-slow-spin from-indigo-300/8 h-[15vw] w-[15vw] rounded-full bg-gradient-to-l to-transparent blur-lg" />
+const Intro = () => {
+  return (
+    <section className="relative flex min-h-[50vh] items-center justify-center overflow-hidden">
+      <div className="absolute inset-0">
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+          <div className="animate-slow-spin h-[45vh] w-[45vh] rounded-full bg-gradient-to-br from-indigo-400/20 via-purple-400/10 to-pink-400/10 blur-3xl md:h-[50vh] md:w-[50vh]" />
+        </div>
+
+        <div className="absolute inset-0">
+          <div className="animate-float absolute left-1/4 top-1/4 h-32 w-32 rounded-full bg-indigo-400/10 blur-xl" />
+          <div className="animate-float-delayed absolute bottom-1/4 right-1/4 h-24 w-24 rounded-full bg-purple-400/10 blur-xl" />
+        </div>
       </div>
 
-      {/* Main Content */}
-      <div className="relative px-4">
+      <div className="relative w-full px-4 py-8 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-5xl">
-          <div className="mb-16 text-center">
-            {/* Tagline */}
-            <div className="inline-flex items-center rounded-full bg-indigo-500/10 px-6 py-2 text-xs text-indigo-700 md:text-sm lg:text-base">
-              Welcome to the Future of Backend Development
+          <div className="space-y-6 text-center md:space-y-8">
+            <div className="inline-flex items-center gap-2 rounded-full border border-indigo-300/20 bg-white/30 px-5 py-2 shadow-sm backdrop-blur-sm">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-indigo-500 opacity-75"></span>
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-indigo-600"></span>
+              </span>
+              <span className="bg-gradient-to-r from-indigo-800 to-purple-800 bg-clip-text text-sm font-medium text-transparent">
+                Welcome to the Future of Backend Development
+              </span>
             </div>
 
-            {/* Main Heading */}
-            <h1 className="mt-6 bg-gradient-to-br from-gray-900 to-gray-600 bg-clip-text text-[6vw] font-bold tracking-tight text-transparent sm:text-[5vw] md:text-[4vw] lg:text-[3.5vw] xl:text-[3vw]">
-              Backend
-              <span className="relative">
-                <span className="absolute -inset-1 block bg-gradient-to-r from-indigo-500 to-indigo-600 opacity-20 blur-2xl" />
-                <span className="relative bg-gradient-to-r from-indigo-500 to-indigo-600 bg-clip-text text-transparent">
-                  Almanac
+            <div className="space-y-3">
+              <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl lg:text-6xl">
+                <span className="block text-gray-900">Backend Almanac</span>
+                <span className="relative mt-1 block">
+                  <span className="absolute -inset-1 block bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 opacity-10 blur-2xl" />
+                  <span className="relative bg-gradient-to-r from-indigo-700 via-purple-700 to-pink-700 bg-clip-text text-transparent">
+                    Your Guide to Excellence
+                  </span>
                 </span>
-              </span>
-            </h1>
+              </h1>
+            </div>
 
-            {/* Description */}
-            <p className="mx-auto mt-8 max-w-4xl text-sm leading-relaxed text-gray-600 md:text-base lg:text-lg">
-              Welcome to Backend Almanac: your authoritative source for backend development
-              insights. Dive into in-depth articles, tutorials, and the latest server-side trends.
-              Whether you're a seasoned pro or just starting out, we've got the resources you need
-              to elevate your backend engineering journey.
+            <p className="mx-auto max-w-2xl text-base leading-relaxed text-gray-700 backdrop-blur-sm md:text-lg">
+              Discover in-depth backend development resources, from expert tutorials to cutting-edge
+              trends. Level up your server-side engineering skills with our comprehensive guides and
+              insights.
             </p>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-)
+    </section>
+  )
+}
 
 export default Intro

@@ -80,12 +80,29 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       </head>
       <body
-        className={`${openSans.variable} bg-white pl-[calc(100vw-100%)] font-sans text-black antialiased`}
+        className={`${openSans.variable} relative bg-gradient-to-b from-gray-50 via-indigo-50/10 to-white pl-[calc(100vw-100%)] font-sans text-black antialiased`}
       >
+        {/* Background Elements */}
+        <div className="fixed inset-0 -z-10">
+          {/* Gradient Orb */}
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+            {/* <div className="animate-slow-spin h-[45vh] w-[45vh] rounded-full bg-gradient-to-br from-indigo-400/30 via-purple-400/20 to-pink-400/20 blur-3xl md:h-[50vh] md:w-[50vh]" /> */}
+          </div>
+
+          {/* Floating Elements */}
+          {/* <div className="absolute inset-0"> */}
+          {/*   <div className="animate-float absolute left-1/4 top-1/4 h-32 w-32 rounded-full bg-indigo-400/20 blur-xl" /> */}
+          {/*   <div className="animate-float-delayed absolute bottom-1/4 right-1/4 h-24 w-24 rounded-full bg-purple-400/20 blur-xl" /> */}
+          {/* </div> */}
+
+          {/* Grid Pattern */}
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.03)_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_at_center,transparent_30%,black_80%)]" />
+        </div>
+
         <ThemeProviders>
           <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
           <SectionContainer>
-            <div className="flex h-screen flex-col justify-between">
+            <div className="relative flex min-h-screen flex-col justify-between">
               <SearchProvider searchConfig={siteMetadata.search as SearchConfig}>
                 <Header />
                 <main className="mb-auto">{children}</main>
