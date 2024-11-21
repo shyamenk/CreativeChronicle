@@ -1,15 +1,17 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: 'Backend-Almanac',
+  title: 'Backend Almanac',
   author: 'Shyam',
-  headerTitle: 'Insights & Tips',
-  description: 'Streamline your workflow and save development time.',
+  headerTitle: 'System Design & Backend Insights',
+  description:
+    'Master System Design and Backend Development with actionable tips, frameworks, and guides.',
   language: 'en-us',
   theme: 'system',
   siteUrl: 'https://backendalmanac.in',
-  siteRepo: 'https://github.com/shyamenk/CreativeChronicle',
-  siteLogo: '/static/images/avatar.png',
-  socialBanner: '/static/images/image.png',
+  siteRepo: 'https://github.com/shyamenk/BackendAlmanac',
+  // siteRepo: 'https://github.com/shyamenk/CreativeChronicle',
+  siteLogo: '/static/images/site-image.png',
+  socialBanner: '/static/images/site-image.png',
   email: 'shyamenk@gmail.com',
   github: 'https://github.com/shyamenk',
   x: 'https://x.com/shyamenk07',
