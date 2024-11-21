@@ -60,9 +60,16 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: siteMetadata.title,
+    title: `${siteMetadata.title} - ${siteMetadata.description.slice(0, 60)}...`,
     description: siteMetadata.description,
-    images: [siteMetadata.socialBanner],
+    images: [
+      {
+        url: siteMetadata.socialBanner,
+        width: 1200,
+        height: 630,
+        alt: siteMetadata.title,
+      },
+    ],
     creator: siteMetadata.twitter,
   },
 }

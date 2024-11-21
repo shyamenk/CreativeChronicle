@@ -1,6 +1,6 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: 'Backend Almanac',
+  title: 'Backend Almanac - System Design & Backend Insights',
   author: 'Shyam',
   headerTitle: 'System Design & Backend Insights',
   description:
@@ -9,12 +9,12 @@ const siteMetadata = {
   theme: 'system',
   siteUrl: 'https://backendalmanac.in',
   siteRepo: 'https://github.com/shyamenk/BackendAlmanac',
-  // siteRepo: 'https://github.com/shyamenk/CreativeChronicle',
   siteLogo: '/static/images/site-image.png',
-  socialBanner: '/static/images/site-image.png',
+  socialBanner: '/static/images/twitter-card.png',
   email: 'shyamenk@gmail.com',
   github: 'https://github.com/shyamenk',
   x: 'https://x.com/shyamenk07',
+  twitter: '@shyamenk07',
   linkedin: 'https://www.linkedin.com/in/shyamenk/',
   locale: 'en-US',
   analytics: {
