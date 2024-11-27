@@ -2,7 +2,7 @@
 title: 'Why Your Database Is Failing (and Here’s How to Fix It)'
 date: '2024-11-20'
 tags: ['Database']
-draft: true
+draft: false
 layout: PostBanner
 images: ['/static/images/cover.jpeg']
 summary: '80% of Data Issues Start with Poor Organization'
@@ -24,7 +24,7 @@ In this post, we’ll break down:
 
 By the end, you'll be equipped to design smarter, faster, and more reliable databases.
 
-## What Is Database Normalization?
+### What Is Database Normalization?
 
 At its core, normalization is the process of organizing data in a database. It involves creating tables and defining relationships between them. The purpose is to follow rules that protect the data, eliminate redundancy, and ensure consistency. By doing this, the database becomes more flexible and easier to manage.
 
@@ -35,25 +35,17 @@ At its core, normalization is the process of organizing data in a database. It i
 3. **Optimize Storage**: Save disk space by storing data efficiently.
 4. **Improve Scalability**: Make it easier to maintain and grow the database.
 
----
-
 ### Why Normalization Matters
 
 Imagine you’re managing an **e-commerce database**. Here’s a sample table:
 
-| OrderID | CustomerName | Product | Price | Address      |
-| ------- | ------------ | ------- | ----- | ------------ |
-| 1       | Alice        | Shoes   | $50   | 123 Elm St.  |
-| 2       | Alice        | Hat     | $20   | 123 Elm St.  |
-| 3       | Bob          | Jacket  | $80   | 456 Oak Ave. |
+![Table](/static/images/normalization/1.png)
 
 **Issues with this Design:**
 
 - **Redundancy**: Alice’s address is repeated for every order.
 - **Inconsistency**: If Alice moves, updating all rows increases error risk.
 - **Scalability**: Adding more products or customers makes the table cumbersome.
-
----
 
 ## What Problems Does Normalization Solve?
 
@@ -65,7 +57,9 @@ Storing the same data multiple times wastes space. In the example above, Alice�
 
 ### 2. **Data Inconsistency**
 
-When duplicate data exists, updates can lead to inconsistencies. For example, if we update Alice’s address in one row but forget the others, the database contains conflicting information.
+When duplicate data exists, updates can lead to inconsistencies.
+
+For example, if we update Alice’s address in one row but forget the others, the database contains conflicting information.
 
 **Solution**: With normalization, data is updated in one place, ensuring consistency.
 
@@ -75,8 +69,6 @@ Large, unorganized tables slow down queries. A poorly designed database makes ev
 
 **Solution**: Breaking data into logical tables speeds up searches and improves indexing.
 
----
-
 ## Advantages of Normalization
 
 1. **Better Data Integrity**: Relationships ensure that data is consistent and accurate.
@@ -85,24 +77,18 @@ Large, unorganized tables slow down queries. A poorly designed database makes ev
 4. **Scalability**: Easier to add new data without breaking the structure.
 5. **Improved Querying**: Structured data makes retrieving information faster.
 
----
-
 ## The Steps of Normalization
 
-Normalization is achieved in stages called **normal forms (NFs)**. Here’s a simple breakdown:
+Normalization is achieved in stages called **normal forms (NFs)**.
+
+**Here’s a simple breakdown:**
 
 ### **First Normal Form (1NF):** Eliminate Duplicate Columns
 
 - Ensure each column contains atomic values (no lists or arrays).
 - Remove duplicate columns from a table.
 
-| OrderID | CustomerID | Product | Price |
-| ------- | ---------- | ------- | ----- |
-| 1       | 1          | Shoes   | $50   |
-| 2       | 1          | Hat     | $20   |
-| 3       | 2          | Jacket  | $80   |
-
----
+![1NF](/static/images/normalization/2.png)
 
 ### **Second Normal Form (2NF):** Remove Partial Dependencies
 
@@ -111,43 +97,21 @@ Normalization is achieved in stages called **normal forms (NFs)**. Here’s a si
 
 **Customers Table:**
 
-| CustomerID | CustomerName | Address      |
-| ---------- | ------------ | ------------ |
-| 1          | Alice        | 123 Elm St.  |
-| 2          | Bob          | 456 Oak Ave. |
+![Customer table](/static/images/normalization/3.png)
 
 **Orders Table:**
 
-| OrderID | CustomerID | ProductID |
-| ------- | ---------- | --------- |
-| 1       | 1          | 1         |
-| 2       | 1          | 2         |
-| 3       | 2          | 3         |
+![Order table](/static/images/normalization/4.png)
 
 **Products Table:**
 
-| ProductID | Product | Price |
-| --------- | ------- | ----- |
-| 1         | Shoes   | $50   |
-| 2         | Hat     | $20   |
-| 3         | Jacket  | $80   |
-
----
+![Product table](/static/images/normalization/5.png)
 
 ### **Third Normal Form (3NF):** Eliminate Transitive Dependencies
 
 - Remove dependencies where non-key columns depend on other non-key columns.
 
-| DeptID | DeptName  | DeptLocation |
-| ------ | --------- | ------------ |
-| 101    | Sales     | New York     |
-| 102    | Marketing | Chicago      |
-
----
-
-![Normalization](static/images/normalization/1.png)
-
----
+![3NF](/static/images/normalization/6.png)
 
 ## How to Approach Normalization
 
@@ -156,15 +120,11 @@ Normalization is achieved in stages called **normal forms (NFs)**. Here’s a si
 3. **Normalize Step-by-Step**: Apply each normal form methodically.
 4. **Balance Performance**: Over-normalization can slow down reads.
 
----
-
-## 🧠 Tips and Tricks for Mastering Normalization
+## Tips and Tricks for Mastering Normalization
 
 1. **Understand the Business Context**: Tailor your design to the application’s needs.
 2. **Know When to Denormalize**: For read-heavy apps, slight denormalization can improve performance.
 3. **Use Tools**: Database design tools like Lucidchart or dbdiagram.io can simplify the process.
-
----
 
 ## Best Practices
 
@@ -172,19 +132,13 @@ Normalization is achieved in stages called **normal forms (NFs)**. Here’s a si
 2. **Leverage Foreign Keys**: Define clear relationships between tables.
 3. **Document Your Design**: Keep a record of your schema and decisions for future reference.
 
----
-
 ## Example of Applying Normalization
 
 Let’s revisit our **e-commerce example**.
 
 ### Step 1: Raw Data (Unnormalized)
 
-| OrderID | CustomerName | Product | Price | Address      |
-| ------- | ------------ | ------- | ----- | ------------ |
-| 1       | Alice        | Shoes   | $50   | 123 Elm St.  |
-| 2       | Alice        | Hat     | $20   | 123 Elm St.  |
-| 3       | Bob          | Jacket  | $80   | 456 Oak Ave. |
+![Raw Table](/static/images/normalization/7.png)
 
 ### Step 2: Normalize to 1NF
 
@@ -197,8 +151,6 @@ Add unique identifiers for products and customers, and remove partial dependenci
 ### Step 4: Normalize to 3NF
 
 Ensure no transitive dependencies by creating a table for any remaining dependent data.
-
----
 
 ## Final Thoughts
 
