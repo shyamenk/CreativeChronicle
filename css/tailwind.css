@@ -6,14 +6,8 @@
   @apply hidden;
 }
 
-@media (max-width: 640px) {
-  html {
-    color-scheme: light;
-  }
-  body {
-    color: initial;
-    background: initial;
-  }
+html {
+  color-scheme: light; /* Forces light mode */
 }
 .task-list-item {
   @apply list-none;
