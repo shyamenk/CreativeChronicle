@@ -29,7 +29,7 @@ function Pagination({ totalPages, currentPage }: PaginationProps) {
   const nextPage = currentPage + 1 <= totalPages
 
   return (
-    <div className="flex items-center justify-between py-8 text-gray-600 dark:text-gray-400">
+    <div className="flex items-center justify-between py-8 text-gray-600">
       {prevPage ? (
         <Link
           href={currentPage - 1 === 1 ? `/${basePath}/` : `/${basePath}/page/${currentPage - 1}`}
@@ -81,7 +81,7 @@ export default function ListLayout({
           <input
             type="text"
             placeholder="Search articles..."
-            className=" w-full rounded-md border-2 border-indigo-500 bg-white px-4 py-2 pr-10 text-gray-900 focus:outline-none focus:ring-1 focus:ring-indigo-500 dark:bg-gray-800 dark:text-gray-100"
+            className=" w-full rounded-md border-2 border-indigo-500 bg-white px-4 py-2 pr-10 text-gray-900 focus:outline-none focus:ring-1 focus:ring-indigo-500"
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value)}
           />
@@ -91,22 +91,19 @@ export default function ListLayout({
       <main>
         <ul className="space-y-8">
           {!filteredBlogPosts.length && (
-            <p className="text-center text-gray-500 dark:text-gray-400">No posts found.</p>
+            <p className="text-center text-gray-500">No posts found.</p>
           )}
           {displayPosts.map((post) => {
             const { path, date, title, summary, tags, readingTime } = post
             return (
-              <li key={path} className="border-b border-gray-200 pb-8 dark:border-gray-700">
+              <li key={path} className="border-b border-gray-200 pb-8">
                 <article>
-                  <h2 className="mb-2 text-2xl font-bold text-gray-900 dark:text-gray-100">
-                    <Link
-                      href={`/${path}`}
-                      className="transition-colors hover:text-gray-600 dark:hover:text-gray-300"
-                    >
+                  <h2 className="mb-2 text-2xl font-bold text-gray-900 ">
+                    <Link href={`/${path}`} className="transition-colors hover:text-gray-600 ">
                       {title}
                     </Link>
                   </h2>
-                  <div className="mb-4 flex items-center space-x-4 text-sm text-gray-500 dark:text-gray-400">
+                  <div className="mb-4 flex items-center space-x-4 text-sm text-gray-500 ">
                     <div className="flex items-center">
                       <Calendar size={14} className="mr-1" />
                       <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
@@ -116,7 +113,7 @@ export default function ListLayout({
                       <span>{readingTime.text}</span>
                     </div>
                   </div>
-                  <p className="mb-4 text-gray-600 dark:text-gray-300">{summary}</p>
+                  <p className="mb-4 text-gray-600 ">{summary}</p>
                   <div className="flex flex-wrap gap-2">
                     {tags.map((tag) => (
                       <Tag key={tag} text={tag} />

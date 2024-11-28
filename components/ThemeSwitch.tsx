@@ -9,7 +9,7 @@ const Sun = () => (
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 20 20"
     fill="currentColor"
-    className="h-6 w-6 text-gray-900 dark:text-gray-100"
+    className="h-6 w-6 text-gray-900 "
   >
     <path
       fillRule="evenodd"
@@ -23,7 +23,7 @@ const Moon = () => (
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 20 20"
     fill="currentColor"
-    className="h-6 w-6 text-gray-900 dark:text-gray-100"
+    className="h-6 w-6 text-gray-900 "
   >
     <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
   </svg>
@@ -37,7 +37,7 @@ const Monitor = () => (
     stroke-width="2"
     stroke-linecap="round"
     stroke-linejoin="round"
-    className="h-6 w-6 text-gray-900 dark:text-gray-100"
+    className="h-6 w-6 text-gray-900 "
   >
     <rect x="3" y="3" width="14" height="10" rx="2" ry="2"></rect>
     <line x1="7" y1="17" x2="13" y2="17"></line>
@@ -67,7 +67,7 @@ const ThemeSwitch = () => {
           leaveFrom="transform opacity-100 scale-100"
           leaveTo="transform opacity-0 scale-95"
         >
-          <Menu.Items className="absolute right-0 z-50 mt-2 w-32 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-gray-800">
+          <Menu.Items className="absolute right-0 z-50 mt-2 w-32 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
             <RadioGroup value={theme} onChange={setTheme}>
               <div className="p-1">
                 <RadioGroup.Option value="light">

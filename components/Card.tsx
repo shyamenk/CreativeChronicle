@@ -2,7 +2,7 @@ import Image from './Image'
 import Link from './Link'
 
 const Card = ({ title, description, imgSrc, href }) => (
-  <div className="max-w-md overflow-hidden rounded-xl bg-white shadow-md transition-all duration-300 hover:shadow-xl dark:bg-gray-800 dark:shadow-gray-700">
+  <div className="max-w-md overflow-hidden rounded-xl bg-white shadow-md transition-all duration-300 hover:shadow-xl">
     {imgSrc && (
       <div className="relative h-64 overflow-hidden">
         {href ? (
@@ -29,12 +29,12 @@ const Card = ({ title, description, imgSrc, href }) => (
     <div className="p-6">
       <div className="mb-4 flex items-baseline">
         <div className="h-0.5 w-12 bg-indigo-500"></div>
-        <h2 className="ml-2 text-xl font-bold tracking-tight text-indigo-700 dark:text-white">
+        <h2 className="ml-2 text-xl font-bold tracking-tight text-indigo-700">
           {href ? (
             <Link
               href={href}
               aria-label={`Link to ${title}`}
-              className="transition-colors duration-300 hover:text-indigo-600 dark:hover:text-indigo-400"
+              className="transition-colors duration-300 hover:text-indigo-600"
             >
               {title}
             </Link>
@@ -43,11 +43,11 @@ const Card = ({ title, description, imgSrc, href }) => (
           )}
         </h2>
       </div>
-      <p className="mb-4 text-md text-gray-600 dark:text-gray-300">{description}</p>
+      <p className="mb-4 text-md text-gray-600">{description}</p>
       {href && (
         <Link
           href={href}
-          className="group inline-flex items-center text-md font-medium font-semibold text-indigo-600 transition-colors duration-300 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300"
+          className="group inline-flex items-center text-md font-medium font-semibold text-indigo-600 transition-colors duration-300 hover:text-indigo-700"
           aria-label={`Link to ${title}`}
         >
           Learn more

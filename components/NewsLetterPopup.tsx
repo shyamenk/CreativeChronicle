@@ -29,17 +29,17 @@ const NewsletterPopup: React.FC = () => {
   if (!isVisible) return null
 
   return (
-    <div className="fixed left-1/2 top-1/2 z-50 w-full max-w-md -translate-x-1/2 -translate-y-1/2 transform rounded-lg bg-white p-6 shadow-lg dark:bg-gray-800">
+    <div className="fixed left-1/2 top-1/2 z-50 w-full max-w-md -translate-x-1/2 -translate-y-1/2 transform rounded-lg bg-white p-6 shadow-lg">
       <button
         onClick={handleClose}
-        className="absolute right-2 top-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300"
+        className="absolute right-2 top-2 text-gray-500 hover:text-gray-700"
       >
         <X size={24} />
       </button>
       <NewsletterForm />
       <button
         onClick={handleClose}
-        className="mt-4 w-full rounded bg-cyan-500 py-2 text-white hover:bg-cyan-600 dark:bg-cyan-400 dark:hover:bg-cyan-300"
+        className="mt-4 w-full rounded bg-cyan-500 py-2 text-white hover:bg-cyan-600"
       >
         Maybe Later
       </button>
