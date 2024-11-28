@@ -15,7 +15,7 @@ const Intro = () => {
       <div className="relative w-full px-4 py-8 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-5xl">
           <div className="space-y-6 text-center md:space-y-8">
-            <div className="inline-flex items-center gap-2 rounded-full border border-indigo-300/20 bg-white/30 px-5 py-2 shadow-sm backdrop-blur-sm">
+            <div className="inline-flex items-center gap-2 rounded-full border border-indigo-300/20 bg-white/30 px-5 py-2 shadow-sm ">
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-indigo-500 opacity-75"></span>
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-indigo-600"></span>

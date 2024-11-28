@@ -2,13 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  color-scheme: light only;
+}
 .task-list-item::before {
   @apply hidden;
 }
 
-html {
-  color-scheme: light; /* Forces light mode */
-}
 .task-list-item {
   @apply list-none;
 }
