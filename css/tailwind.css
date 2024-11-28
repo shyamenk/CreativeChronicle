@@ -6,6 +6,15 @@
   @apply hidden;
 }
 
+@media (max-width: 640px) {
+  html {
+    color-scheme: light;
+  }
+  body {
+    color: initial;
+    background: initial;
+  }
+}
 .task-list-item {
   @apply list-none;
 }

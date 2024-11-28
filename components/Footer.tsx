@@ -4,25 +4,29 @@ import SocialIcon from '@/components/social-icons'
 
 export default function Footer() {
   return (
-    <footer>
-      <div className="mt-16 flex flex-col items-center">
-        <div className="mb-3 flex space-x-4">
-          <SocialIcon kind="mail" href={`mailto:${siteMetadata.email}`} size={6} />
-          <SocialIcon kind="github" href={siteMetadata.github} size={6} />
-          {/* <SocialIcon kind="facebook" href={siteMetadata.facebook} size={6} /> */}
-          {/* <SocialIcon kind="youtube" href={siteMetadata.youtube} size={6} /> */}
-          <SocialIcon kind="linkedin" href={siteMetadata.linkedin} size={6} />
-          <SocialIcon kind="twitter" href={siteMetadata.twitter} size={6} />
-          <SocialIcon kind="x" href={siteMetadata.x} size={6} />
-          <SocialIcon kind="instagram" href={siteMetadata.instagram} size={6} />
-          <SocialIcon kind="threads" href={siteMetadata.threads} size={6} />
-        </div>
-        <div className="mb-2 flex space-x-2 text-sm text-gray-500 dark:text-gray-400">
-          <div>{siteMetadata.author}</div>
-          <div>{` • `}</div>
-          <div>{`© ${new Date().getFullYear()}`}</div>
-          <div>{` • `}</div>
-          <Link href="/">{siteMetadata.title}</Link>
+    <footer className="w-full px-4 py-8 sm:px-6 lg:px-8">
+      <div className="container mx-auto max-w-7xl">
+        <div className="flex flex-col items-center space-y-6">
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
+            <SocialIcon kind="mail" href={`mailto:${siteMetadata.email}`} size={6} />
+            <SocialIcon kind="github" href={siteMetadata.github} size={6} />
+            <SocialIcon kind="linkedin" href={siteMetadata.linkedin} size={6} />
+            <SocialIcon kind="twitter" href={siteMetadata.twitter} size={6} />
+            <SocialIcon kind="x" href={siteMetadata.x} size={6} />
+            <SocialIcon kind="instagram" href={siteMetadata.instagram} size={6} />
+            <SocialIcon kind="threads" href={siteMetadata.threads} size={6} />
+          </div>
+          <div className="flex flex-col items-center space-y-2 text-center">
+            <div className="flex flex-wrap items-center justify-center gap-2 text-sm text-gray-600">
+              <span>{siteMetadata.author}</span>
+              <span className="hidden sm:inline">•</span>
+              <span>{`© ${new Date().getFullYear()}`}</span>
+              <span className="hidden sm:inline">•</span>
+              <Link href="/" className="text-sm text-gray-600 hover:underline sm:inline">
+                {siteMetadata.title}
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

@@ -7,13 +7,11 @@ const Intro = () => {
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
           <div className="animate-slow-spin h-[45vh] w-[45vh] rounded-full bg-gradient-to-br from-indigo-400/20 via-purple-400/10 to-pink-400/10 blur-3xl md:h-[50vh] md:w-[50vh]" />
         </div>
-
         <div className="absolute inset-0">
           <div className="animate-float absolute left-1/4 top-1/4 h-32 w-32 rounded-full bg-indigo-400/10 blur-xl" />
           <div className="animate-float-delayed absolute bottom-1/4 right-1/4 h-24 w-24 rounded-full bg-purple-400/10 blur-xl" />
         </div>
       </div>
-
       <div className="relative w-full px-4 py-8 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-5xl">
           <div className="space-y-6 text-center md:space-y-8">
@@ -26,7 +24,6 @@ const Intro = () => {
                 Welcome to the Future of Backend Development
               </span>
             </div>
-
             <div className="space-y-3">
               <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl lg:text-6xl">
                 <span className="block text-gray-900">Backend Almanac</span>
@@ -38,7 +35,6 @@ const Intro = () => {
                 </span>
               </h1>
             </div>
-
             <p className="mx-auto max-w-2xl text-base leading-relaxed text-gray-700 backdrop-blur-sm md:text-lg">
               Discover in-depth backend development resources, from expert tutorials to cutting-edge
               trends. Level up your server-side engineering skills with our comprehensive guides and
