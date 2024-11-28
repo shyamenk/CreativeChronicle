@@ -86,7 +86,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="msapplication-TileColor" content="#000000" />
         <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       </head>
-      <body className={`${openSans.variable} relative antialiased`}>
+      <body
+        className={`${openSans.variable} relative bg-gradient-to-b from-gray-50 via-indigo-50/10 to-white pl-[calc(100vw-100%)] font-sans text-black antialiased [color-scheme:light]`}
+      >
         <div className="fixed inset-0 -z-10">
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
 
