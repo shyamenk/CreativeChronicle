@@ -28,21 +28,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: siteMetadata.title,
     description: siteMetadata.description,
-    url: siteMetadata.siteUrl,
+    url: './',
     siteName: siteMetadata.title,
-    images: [
-      {
-        url: siteMetadata.socialBanner,
-        width: 1200,
-        height: 630,
-        alt: siteMetadata.title,
-      },
-    ],
+    images: [siteMetadata.socialBanner],
     locale: 'en_US',
     type: 'website',
   },
   alternates: {
-    canonical: siteMetadata.siteUrl,
+    canonical: './',
     types: {
       'application/rss+xml': `${siteMetadata.siteUrl}/feed.xml`,
     },
@@ -59,22 +52,15 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
+    title: siteMetadata.title,
     card: 'summary_large_image',
-    title: `${siteMetadata.title} - ${siteMetadata.description.slice(0, 60)}...`,
-    description: siteMetadata.description,
-    images: [
-      {
-        url: siteMetadata.socialBanner,
-        width: 1200,
-        height: 630,
-        alt: siteMetadata.title,
-      },
-    ],
-    creator: siteMetadata.twitter,
+    images: [siteMetadata.socialBanner],
   },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const basePath = process.env.BASE_PATH || ''
+
   return (
     <html lang={siteMetadata.language} suppressHydrationWarning>
       <head>
@@ -82,16 +68,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="icon" type="image/png" sizes="32x32" href="/static/favicons/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/static/favicons/favicon-16x16.png" />
         <link rel="manifest" href="/static/favicons/site.webmanifest" />
-        {/* <link rel="mask-icon" href="/static/favicons/safari-pinned-tab.svg" color="#5bbad5" /> */}
-        {/* <meta name="msapplication-TileColor" content="#000000" /> */}
-        <meta name="color-scheme" content="light only" />
+        <link rel="mask-icon" href="/static/favicons/safari-pinned-tab.svg" color="#5bbad5" />
+        <meta name="msapplication-TileColor" content="#000000" />
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
+        <link rel="alternate" type="application/rss+xml" href={`${basePath}/feed.xml`} />
         <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       </head>
-      <body className={`${openSans.variable} relative font-sans`}>
+      <body
+        className={`${openSans.variable} relative bg-white pl-[calc(100vw-100%)] font-sans text-black antialiased transition-colors duration-300 dark:bg-gray-950 dark:text-white`}
+      >
         <div className="fixed inset-0 -z-10">
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
 
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.03)_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_at_center,transparent_30%,black_80%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.03)_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_at_center,transparent_30%,black_80%)] dark:bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)]" />
         </div>
 
         <ThemeProviders>

@@ -69,7 +69,7 @@ const PostMinimal = ({ content, next, prev, authorDetails, children }: LayoutPro
         <BreadCrumb />
         <article className="py-8">
           <header className="mb-8 font-serif">
-            <h1 className="mb-4 font-sans text-3xl font-bold leading-tight text-gray-900 sm:text-4xl md:text-4xl">
+            <h1 className="mb-4 font-sans text-3xl font-bold leading-tight text-gray-900 dark:text-gray-100 sm:text-4xl md:text-4xl">
               {title}
             </h1>
             <div className="flex flex-col space-y-4 sm:flex-row sm:items-center sm:justify-between sm:space-y-0">
@@ -84,11 +84,11 @@ const PostMinimal = ({ content, next, prev, authorDetails, children }: LayoutPro
                             alt={author.name}
                             width={40}
                             height={40}
-                            className="rounded-full border-2 border-indigo-500 p-0.5"
+                            className="rounded-full border-2 border-indigo-500 p-0.5 dark:border-indigo-400"
                             unoptimized={!author.avatar.startsWith('/')}
                           />
                         )}
-                        <span className="ml-2 font-sans font-bold text-indigo-600">
+                        <span className="ml-2 font-sans font-bold text-indigo-600 dark:text-indigo-400">
                           {author.name}
                         </span>
                       </div>
@@ -96,7 +96,7 @@ const PostMinimal = ({ content, next, prev, authorDetails, children }: LayoutPro
                   </div>
                 )}
                 {formattedDate && (
-                  <div className="flex items-center space-x-2 font-sans text-gray-600">
+                  <div className="flex items-center space-x-2 font-sans text-gray-600 dark:text-gray-400">
                     <Calendar size={16} />
                     <time dateTime={date}>{formattedDate}</time>
                   </div>
@@ -108,7 +108,7 @@ const PostMinimal = ({ content, next, prev, authorDetails, children }: LayoutPro
                     href={`https://x.com/shyamenk07`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition hover:bg-indigo-100 hover:text-indigo-600"
+                    className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition hover:bg-indigo-100 hover:text-indigo-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-indigo-900 dark:hover:text-indigo-400"
                     aria-label="Twitter/X Profile"
                   >
                     <svg className="h-5 w-5" viewBox="0 0 512 512" fill="currentColor">
@@ -118,7 +118,7 @@ const PostMinimal = ({ content, next, prev, authorDetails, children }: LayoutPro
                 )}
                 <button
                   onClick={handleShare}
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition hover:bg-indigo-100 hover:text-indigo-600"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition hover:bg-indigo-100 hover:text-indigo-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-indigo-900 dark:hover:text-indigo-400"
                   aria-label="Share article"
                 >
                   <Share2 size={20} />
@@ -137,13 +137,15 @@ const PostMinimal = ({ content, next, prev, authorDetails, children }: LayoutPro
               unoptimized={!displayImage.startsWith(siteMetadata.siteUrl)}
             />
           </div>
-          <div className="prose prose-lg mx-auto mb-8 max-w-none text-gray-700">{children}</div>
-          <hr className="mb-8 border-gray-200" />
+          <div className="prose prose-lg mx-auto mb-8 max-w-none text-gray-700 dark:prose-invert dark:text-gray-300">
+            {children}
+          </div>
+          <hr className="mb-8 border-gray-200 dark:border-gray-700" />
           <nav className="flex flex-col space-y-4 sm:flex-row sm:items-center sm:justify-between sm:space-y-0">
             {prev && prev.path && (
               <Link
                 href={`/${prev.path}`}
-                className="flex items-center text-indigo-600 transition hover:text-indigo-800"
+                className="flex items-center text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300 sm:justify-end"
               >
                 <ChevronLeft size={24} className="mr-2" />
                 <span className="line-clamp-1 text-sm sm:text-base">{prev.title}</span>
@@ -152,7 +154,7 @@ const PostMinimal = ({ content, next, prev, authorDetails, children }: LayoutPro
             {next && next.path && (
               <Link
                 href={`/${next.path}`}
-                className="flex items-center text-indigo-600 transition hover:text-indigo-800 sm:justify-end"
+                className="flex items-center text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300 sm:justify-end"
               >
                 <span className="line-clamp-1 text-sm sm:text-base">{next.title}</span>
                 <ChevronRight size={24} className="ml-2" />
