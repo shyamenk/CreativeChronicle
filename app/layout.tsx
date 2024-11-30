@@ -79,9 +79,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         className={`${openSans.variable} relative bg-white pl-[calc(100vw-100%)] font-sans text-black antialiased transition-colors duration-300 dark:bg-gray-950 dark:text-white`}
       >
         <div className="fixed inset-0 -z-10">
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
-
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.03)_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_at_center,transparent_30%,black_80%)] dark:bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)]" />
+          <div className="absolute inset-0">
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(#8080800a_1px,transparent_1px)] [background-size:40px_40px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
+          </div>
         </div>
 
         <ThemeProviders>

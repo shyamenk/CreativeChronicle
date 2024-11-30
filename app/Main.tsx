@@ -11,7 +11,7 @@ const MAX_DISPLAY = 6
 
 const Card = ({ children, className = '' }) => (
   <div
-    className={`overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all hover:border-indigo-300 hover:shadow-md dark:border-gray-700 dark:bg-gray-800 dark:hover:border-indigo-600 ${className}`}
+    className={`overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all hover:border-indigo-300 hover:shadow-md dark:border-gray-700 dark:bg-gray-800 dark:hover:border-indigo-500 dark:hover:shadow-indigo-500/10 ${className}`}
   >
     {children}
   </div>
@@ -31,7 +31,7 @@ const CardFooter = ({ children, className = '' }) => (
 
 const Button = ({ children, className = '', ...props }) => (
   <button
-    className={`inline-flex items-center justify-center rounded-md border border-indigo-500 bg-indigo-500 px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:border-indigo-400 dark:bg-indigo-400 dark:text-gray-900 dark:hover:bg-indigo-300 ${className}`}
+    className={`inline-flex items-center justify-center rounded-md bg-gradient-to-r from-indigo-500 to-purple-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition-all hover:from-indigo-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:from-indigo-400 dark:to-purple-500 dark:text-gray-900 dark:hover:from-indigo-500 dark:hover:to-purple-600 dark:focus:ring-offset-gray-900 ${className}`}
     {...props}
   >
     {children}
@@ -50,7 +50,7 @@ export default function Home({ posts }) {
           <p className="text-center text-base text-gray-500 dark:text-gray-400">No posts found.</p>
         )}
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2">
           {posts.slice(0, MAX_DISPLAY).map((post) => {
             const { slug, date, title, summary, tags, readingTime, images } = post
             return (
@@ -62,16 +62,16 @@ export default function Home({ posts }) {
                       alt={title}
                       width={400}
                       height={225}
-                      className="aspect-video w-full rounded-t-lg object-cover"
+                      className="aspect-video w-full rounded-t-lg object-cover transition-transform hover:scale-105"
                       priority
                     />
                   </Link>
                 </CardHeader>
-                <CardContent className="flex-grow space-y-2 dark:bg-gray-900">
+                <CardContent className="flex-grow space-y-3 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900">
                   <h3 className="line-clamp-2 text-base font-semibold sm:text-lg">
                     <Link
                       href={`/blog/${slug}`}
-                      className="text-gray-900 hover:text-indigo-600 dark:text-gray-100 dark:hover:text-indigo-400"
+                      className="bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent transition-all hover:from-indigo-600 hover:to-purple-600 dark:from-gray-100 dark:to-gray-300 dark:hover:from-indigo-400 dark:hover:to-purple-400"
                     >
                       {title}
                     </Link>
@@ -79,12 +79,12 @@ export default function Home({ posts }) {
 
                   {/* Responsive Metadata */}
                   <div className="flex flex-wrap items-center space-x-2 text-xs text-gray-500 dark:text-gray-400">
-                    <div className="flex items-center font-bold text-indigo-500 dark:text-indigo-400">
+                    <div className="flex items-center font-bold text-indigo-600 dark:text-indigo-400">
                       <Calendar size={12} className="mr-1" />
                       <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
                     </div>
                     <div className="h-3 border-r border-gray-300 dark:border-gray-600"></div>
-                    <div className="flex items-center font-bold text-indigo-500 dark:text-indigo-400">
+                    <div className="flex items-center font-bold text-indigo-600 dark:text-indigo-400">
                       <AlarmClockCheck size={12} className="mr-1" />
                       <span>{readingTime.text}</span>
                     </div>
@@ -107,10 +107,10 @@ export default function Home({ posts }) {
                   </div>
                 </CardContent>
 
-                <CardFooter className="px-3 py-2.5 dark:bg-gray-900">
+                <CardFooter className="bg-gray-50 px-3 py-2.5 dark:bg-gray-800">
                   <Link
                     href={`/blog/${slug}`}
-                    className="group inline-flex items-center text-xs font-medium text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300 sm:text-sm"
+                    className="group inline-flex items-center text-xs font-medium text-indigo-600 transition-colors hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300 sm:text-sm"
                   >
                     Read more
                     <ChevronRight
