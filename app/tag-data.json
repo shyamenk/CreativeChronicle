@@ -1,1 +1,10 @@
-{ "api": 1, "database": 2, "web": 1, "system-design": 2, "tools": 1 }
+{
+  "api": 1,
+  "database": 2,
+  "web": 1,
+  "system-design": 2,
+  "security": 1,
+  "web-development": 1,
+  "owasp": 1,
+  "tools": 1
+}
