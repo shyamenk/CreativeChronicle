@@ -1,0 +1,659 @@
+---
+title: 'Markdown Components Test Page'
+date: '2024-01-01'
+tags: ['markdown', 'test', 'components', 'github', 'styling']
+draft: false
+summary: 'A comprehensive test page showcasing all available markdown components with GitHub-compatible styling including syntax highlighting, tables, alerts, and more.'
+images: ['/static/images/twitter-card.png']
+authors: ['default']
+layout: 'PostLayout'
+---
+
+# Markdown Components Test Page
+
+This page demonstrates all available markdown components with GitHub-compatible styling. Use this to test and verify that all elements render correctly.
+
+## Table of Contents
+
+<TOCInline toc={props.toc} exclude="Table of Contents" />
+
+## Headings
+
+# Heading 1
+
+## Heading 2
+
+### Heading 3
+
+#### Heading 4
+
+##### Heading 5
+
+###### Heading 6
+
+## Typography
+
+**Bold text** and _italic text_ and **_bold italic text_**.
+
+~~Strikethrough text~~
+
+Regular text with `inline code` and some more text.
+
+> This is a blockquote
+>
+> With multiple lines
+> And **formatting** inside
+
+## Lists
+
+### Unordered Lists
+
+- First item
+- Second item
+  - Nested item
+  - Another nested item
+    - Deeply nested item
+- Third item
+
+### Ordered Lists
+
+1. First ordered item
+2. Second ordered item
+   1. Nested ordered item
+   2. Another nested ordered item
+3. Third ordered item
+
+### Task Lists
+
+- [x] Completed task
+- [ ] Incomplete task
+- [x] Another completed task
+- [ ] Another incomplete task
+
+## Links and Images
+
+[External link to GitHub](https://github.com)
+
+[Internal link to home](/blog)
+
+![Example image](/static/images/twitter-card.png)
+
+## Code Blocks
+
+### JavaScript
+
+```javascript
+// JavaScript example with syntax highlighting
+const greeting = (name) => {
+  console.log(`Hello, ${name}!`)
+  return `Welcome to our blog, ${name}`
+}
+
+// Async function example
+async function fetchUserData(userId) {
+  try {
+    const response = await fetch(`/api/users/${userId}`)
+    const userData = await response.json()
+    return userData
+  } catch (error) {
+    console.error('Error fetching user data:', error)
+    throw error
+  }
+}
+
+// Class example
+class BlogPost {
+  constructor(title, content, author) {
+    this.title = title
+    this.content = content
+    this.author = author
+    this.createdAt = new Date()
+  }
+
+  publish() {
+    console.log(`Publishing "${this.title}" by ${this.author}`)
+  }
+}
+```
+
+### TypeScript
+
+```typescript
+// TypeScript example with interfaces and types
+interface User {
+  id: number
+  name: string
+  email: string
+  isActive: boolean
+}
+
+type UserRole = 'admin' | 'user' | 'moderator'
+
+class UserManager {
+  private users: User[] = []
+
+  addUser(user: User): void {
+    this.users.push(user)
+  }
+
+  findUserById(id: number): User | undefined {
+    return this.users.find((user) => user.id === id)
+  }
+
+  getActiveUsers(): User[] {
+    return this.users.filter((user) => user.isActive)
+  }
+}
+
+// Generic function
+function createApiResponse<T>(data: T, status: number): ApiResponse<T> {
+  return {
+    data,
+    status,
+    timestamp: new Date().toISOString(),
+  }
+}
+```
+
+### Python
+
+```python
+# Python example with classes and functions
+import asyncio
+from datetime import datetime
+from typing import List, Optional, Dict, Any
+
+class BlogPost:
+    def __init__(self, title: str, content: str, author: str):
+        self.title = title
+        self.content = content
+        self.author = author
+        self.created_at = datetime.now()
+        self.tags: List[str] = []
+
+    def add_tag(self, tag: str) -> None:
+        """Add a tag to the blog post."""
+        if tag not in self.tags:
+            self.tags.append(tag)
+
+    def get_word_count(self) -> int:
+        """Calculate the word count of the content."""
+        return len(self.content.split())
+
+# Async function example
+async def fetch_blog_posts(limit: int = 10) -> List[Dict[str, Any]]:
+    """Fetch blog posts from API."""
+    await asyncio.sleep(1)  # Simulate API call
+    return [
+        {
+            "id": i,
+            "title": f"Blog Post {i}",
+            "content": f"Content for post {i}",
+            "author": "Test Author"
+        }
+        for i in range(1, limit + 1)
+    ]
+
+# List comprehension and filtering
+def filter_active_posts(posts: List[BlogPost], days: int = 30) -> List[BlogPost]:
+    """Filter posts that are active within the specified days."""
+    cutoff_date = datetime.now() - timedelta(days=days)
+    return [post for post in posts if post.created_at >= cutoff_date]
+```
+
+### JSON
+
+```json
+{
+  "name": "markdown-test-blog",
+  "version": "1.0.0",
+  "description": "A test blog post showcasing markdown components",
+  "author": {
+    "name": "Test Author",
+    "email": "test@example.com",
+    "url": "https://example.com"
+  },
+  "posts": [
+    {
+      "id": 1,
+      "title": "First Blog Post",
+      "slug": "first-blog-post",
+      "tags": ["test", "markdown", "blog"],
+      "published": true,
+      "metadata": {
+        "wordCount": 1500,
+        "readingTime": "6 minutes",
+        "difficulty": "beginner"
+      }
+    }
+  ],
+  "settings": {
+    "theme": "github",
+    "syntaxHighlighting": true,
+    "showLineNumbers": false,
+    "enableComments": true
+  }
+}
+```
+
+### YAML
+
+```yaml
+# YAML configuration example
+name: markdown-test-blog
+version: 1.0.0
+description: A test blog post showcasing markdown components
+
+author:
+  name: Test Author
+  email: test@example.com
+  url: https://example.com
+
+posts:
+  - id: 1
+    title: First Blog Post
+    slug: first-blog-post
+    tags:
+      - test
+      - markdown
+      - blog
+    published: true
+    metadata:
+      wordCount: 1500
+      readingTime: 6 minutes
+      difficulty: beginner
+
+settings:
+  theme: github
+  syntaxHighlighting: true
+  showLineNumbers: false
+  enableComments: true
+
+# Build configuration
+build:
+  target: static
+  outputDir: dist
+  plugins:
+    - name: markdown-processor
+      enabled: true
+    - name: syntax-highlighter
+      enabled: true
+      theme: github
+```
+
+### Bash/Shell
+
+```bash
+#!/bin/bash
+# Bash script example with various commands
+
+# Variables
+PROJECT_NAME="markdown-blog"
+BUILD_DIR="dist"
+SOURCE_DIR="src"
+
+# Functions
+build_project() {
+    echo "Building project: $PROJECT_NAME"
+
+    # Create build directory
+    mkdir -p "$BUILD_DIR"
+
+    # Copy source files
+    cp -r "$SOURCE_DIR"/* "$BUILD_DIR/"
+
+    # Run build commands
+    npm run build
+
+    echo "Build completed successfully!"
+}
+
+# Conditional logic
+check_dependencies() {
+    if command -v node &> /dev/null; then
+        echo "Node.js is installed"
+        node --version
+    else
+        echo "Node.js is not installed. Please install Node.js first."
+        exit 1
+    fi
+}
+
+# Array operations
+REQUIRED_TOOLS=("node" "npm" "git")
+
+for tool in "${REQUIRED_TOOLS[@]}"; do
+    if ! command -v "$tool" &> /dev/null; then
+        echo "Error: $tool is not installed"
+        exit 1
+    fi
+done
+
+# Main execution
+main() {
+    echo "Starting deployment process..."
+    check_dependencies
+    build_project
+    echo "Deployment completed!"
+}
+
+# Run main function
+main "$@"
+```
+
+### CSS
+
+```css
+/* CSS example with modern features */
+:root {
+  --primary-color: #0969da;
+  --secondary-color: #656d76;
+  --background-color: #ffffff;
+  --text-color: #24292f;
+  --border-radius: 6px;
+  --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Component styling */
+.blog-post {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: var(--background-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.blog-post__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.blog-post__content {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .blog-post {
+    padding: 1rem;
+    margin: 1rem;
+  }
+
+  .blog-post__title {
+    font-size: 2rem;
+  }
+}
+
+/* CSS Grid example */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+
+/* Flexbox example */
+.blog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #e1e4e8;
+}
+
+/* Animation example */
+.blog-card {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+```
+
+### SQL
+
+```sql
+-- SQL example with various query types
+-- Create database schema
+CREATE DATABASE blog_system;
+USE blog_system;
+
+-- Create tables
+CREATE TABLE users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    is_active BOOLEAN DEFAULT TRUE
+);
+
+CREATE TABLE blog_posts (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(255) NOT NULL,
+    slug VARCHAR(255) UNIQUE NOT NULL,
+    content TEXT NOT NULL,
+    summary TEXT,
+    author_id INT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    published_at TIMESTAMP NULL,
+    is_published BOOLEAN DEFAULT FALSE,
+    view_count INT DEFAULT 0,
+    FOREIGN KEY (author_id) REFERENCES users(id) ON DELETE CASCADE,
+    INDEX idx_slug (slug),
+    INDEX idx_published (is_published, published_at),
+    INDEX idx_author (author_id)
+);
+
+CREATE TABLE tags (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50) UNIQUE NOT NULL,
+    slug VARCHAR(50) UNIQUE NOT NULL,
+    description TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE post_tags (
+    post_id INT,
+    tag_id INT,
+    PRIMARY KEY (post_id, tag_id),
+    FOREIGN KEY (post_id) REFERENCES blog_posts(id) ON DELETE CASCADE,
+    FOREIGN KEY (tag_id) REFERENCES tags(id) ON DELETE CASCADE
+);
+
+-- Complex queries
+-- Get published posts with author info and tag count
+SELECT
+    bp.id,
+    bp.title,
+    bp.slug,
+    bp.summary,
+    bp.published_at,
+    bp.view_count,
+    u.username AS author,
+    u.email AS author_email,
+    COUNT(pt.tag_id) AS tag_count
+FROM blog_posts bp
+INNER JOIN users u ON bp.author_id = u.id
+LEFT JOIN post_tags pt ON bp.id = pt.post_id
+WHERE bp.is_published = TRUE
+  AND bp.published_at <= NOW()
+  AND u.is_active = TRUE
+GROUP BY bp.id, u.username, u.email
+ORDER BY bp.published_at DESC
+LIMIT 10;
+
+-- Get popular tags with post counts
+SELECT
+    t.name,
+    t.slug,
+    COUNT(pt.post_id) AS post_count,
+    AVG(bp.view_count) AS avg_views
+FROM tags t
+INNER JOIN post_tags pt ON t.id = pt.tag_id
+INNER JOIN blog_posts bp ON pt.post_id = bp.id
+WHERE bp.is_published = TRUE
+GROUP BY t.id, t.name, t.slug
+HAVING COUNT(pt.post_id) >= 3
+ORDER BY post_count DESC, avg_views DESC;
+
+-- Update view count
+UPDATE blog_posts
+SET view_count = view_count + 1
+WHERE slug = 'markdown-components-test'
+  AND is_published = TRUE;
+```
+
+## Tables
+
+### Simple Table
+
+| Name | Age | City          |
+| ---- | --- | ------------- |
+| John | 25  | New York      |
+| Jane | 30  | San Francisco |
+| Bob  | 35  | Los Angeles   |
+
+### Complex Table with Alignment
+
+| Feature             | Description                    |     Status     | Priority |
+| :------------------ | :----------------------------- | :------------: | -------: |
+| Syntax Highlighting | GitHub-style code highlighting |  ✅ Complete   |     High |
+| Responsive Design   | Mobile-friendly layout         |  ✅ Complete   |     High |
+| Dark Mode           | Theme switching capability     |  ✅ Complete   |   Medium |
+| Comments            | User comment system            | 🚧 In Progress |      Low |
+| Search              | Full-text search functionality |   ❌ Planned   |   Medium |
+
+### Table with Code
+
+| Language   | Example            | Use Case              |
+| ---------- | ------------------ | --------------------- |
+| JavaScript | `const x = 10;`    | Web development       |
+| Python     | `x = 10`           | Data science, backend |
+| Go         | `var x int = 10`   | System programming    |
+| Rust       | `let x: i32 = 10;` | System programming    |
+
+## GitHub Alerts
+
+> [!NOTE]
+> This is a note alert. Use it to provide additional information or context.
+
+> [!TIP]
+> This is a tip alert. Use it to share helpful advice or best practices.
+
+> [!IMPORTANT]
+> This is an important alert. Use it to highlight critical information.
+
+> [!WARNING]
+> This is a warning alert. Use it to caution about potential issues.
+
+> [!CAUTION]
+> This is a caution alert. Use it for dangerous or risky actions.
+
+## Horizontal Rules
+
+---
+
+## Footnotes
+
+Here's a sentence with a footnote[^1].
+
+And here's another footnote[^2].
+
+[^1]: This is the first footnote.
+
+[^2]: This is the second footnote with more content. You can write multiple paragraphs in footnotes.
+
+## Mathematical Expressions (KaTeX)
+
+### Inline Math
+
+The Pythagorean theorem is $a^2 + b^2 = c^2$.
+
+### Block Math
+
+$$
+\\int_{-\\infty}^{\\infty} e^{-x^2} dx = \\sqrt{\\pi}
+$$
+
+$$
+E = mc^2
+$$
+
+## Custom Components
+
+### Newsletter Signup
+
+<BlogNewsletterForm title="Subscribe to the newsletter" />
+
+### Custom Image Component
+
+<Image alt="Test image" src="/static/images/twitter-card.png" width={1200} height={630} />
+
+## Code with Titles
+
+```javascript title="utils/formatDate.js"
+// Utility function to format dates
+export function formatDate(date, locale = 'en-US') {
+  const options = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  }
+
+  return new Date(date).toLocaleDateString(locale, options)
+}
+```
+
+```python title="models/blog_post.py"
+from datetime import datetime
+from typing import List, Optional
+
+class BlogPost:
+    def __init__(self, title: str, content: str):
+        self.title = title
+        self.content = content
+        self.created_at = datetime.now()
+        self.tags: List[str] = []
+
+    def add_tags(self, tags: List[str]) -> None:
+        self.tags.extend(tags)
+```
+
+## Inline Code in Different Contexts
+
+Here are some examples of `inline code` in sentences. You can also use inline code with **bold `code` text** and _italic `code` text_.
+
+Variables like `userName`, `isAuthenticated`, and `apiEndpoint` should be clearly identifiable.
+
+File paths like `/src/components/BlogPost.tsx` and `/api/posts/[slug].js` are also styled as code.
+
+## Performance and Optimization
+
+This test page helps verify:
+
+- ✅ Syntax highlighting performance with multiple code blocks
+- ✅ Table rendering with complex content
+- ✅ Image loading and optimization
+- ✅ Typography hierarchy and spacing
+- ✅ Responsive design across devices
+- ✅ Dark/light theme compatibility
+- ✅ Accessibility features
+
+## Conclusion
+
+This comprehensive test page includes all major markdown components supported by the blog system. It serves as both a visual reference and a testing ground for new features and styling updates.
+
+The GitHub-compatible styling ensures consistency with developer expectations and provides an excellent reading experience for technical content.
