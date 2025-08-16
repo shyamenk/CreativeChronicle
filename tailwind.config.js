@@ -1,6 +1,7 @@
 // @ts-check
 const { fontFamily } = require('tailwindcss/defaultTheme')
 const colors = require('tailwindcss/colors')
+
 /** @type {import("tailwindcss/types").Config } */
 module.exports = {
   content: [
@@ -16,6 +17,13 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['Open Sans', ...fontFamily.sans],
+      },
+      // Design System Spacing (4px grid)
+      spacing: {
+        18: '4.5rem', // 72px
+        22: '5.5rem', // 88px
+        26: '6.5rem', // 104px
+        30: '7.5rem', // 120px
       },
       keyframes: {
         underline: {

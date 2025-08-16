@@ -3,7 +3,7 @@ import Link from './Link'
 import { getContextualBlurDataURL } from '@/lib/image-utils'
 
 const Card = ({ title, description, imgSrc, href }) => (
-  <div className="max-w-md overflow-hidden rounded-xl bg-white shadow-md transition-all duration-300 hover:shadow-xl">
+  <div className="card-base card-hover max-w-md overflow-hidden rounded-xl shadow-md transition-all duration-300 hover:shadow-xl">
     {imgSrc && (
       <div className="relative h-64 overflow-hidden">
         {href ? (

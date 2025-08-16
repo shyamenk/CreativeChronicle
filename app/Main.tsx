@@ -7,15 +7,12 @@ import { formatDate } from 'pliny/utils/formatDate'
 import { AlarmClockCheck, ArrowRight, Calendar, ChevronRight } from 'lucide-react'
 import Intro from '@/components/intro'
 import { getContextualBlurDataURL } from '@/lib/image-utils'
+import { Button } from '@/components/ui/Button'
 
 const MAX_DISPLAY = 6
 
 const Card = ({ children, className = '' }) => (
-  <div
-    className={`overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all hover:border-indigo-300 hover:shadow-md dark:border-gray-700 dark:bg-gray-800 dark:hover:border-indigo-500 dark:hover:shadow-indigo-500/10 ${className}`}
-  >
-    {children}
-  </div>
+  <div className={`card-base card-hover overflow-hidden ${className}`}>{children}</div>
 )
 
 const CardHeader = ({ children, className = '' }) => (
@@ -30,23 +27,12 @@ const CardFooter = ({ children, className = '' }) => (
   <div className={`border-t border-gray-200 p-4 dark:border-gray-700 ${className}`}>{children}</div>
 )
 
-const Button = ({ children, className = '', ...props }) => (
-  <button
-    className={`inline-flex items-center justify-center rounded-md bg-gradient-to-r from-indigo-500 to-purple-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition-all hover:from-indigo-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:from-indigo-400 dark:to-purple-500 dark:text-gray-900 dark:hover:from-indigo-500 dark:hover:to-purple-600 dark:focus:ring-offset-gray-900 ${className}`}
-    {...props}
-  >
-    {children}
-  </button>
-)
-
 export default function Home({ posts }) {
   return (
-    <div className="container mx-auto px-4 py-8 sm:max-w-xl md:max-w-2xl lg:max-w-4xl">
+    <div className="container-normal space-section">
       <Intro />
-      <section className="mb-12">
-        <h2 className="mb-6 text-xl font-bold text-gray-900 dark:text-gray-100 sm:text-2xl">
-          Recent Articles
-        </h2>
+      <section className="space-content">
+        <h2 className="text-heading-2 text-gray-900 dark:text-gray-100">Recent Articles</h2>
         {!posts.length && (
           <p className="text-center text-base text-gray-500 dark:text-gray-400">No posts found.</p>
         )}
@@ -71,8 +57,8 @@ export default function Home({ posts }) {
                     />
                   </Link>
                 </CardHeader>
-                <CardContent className="flex-grow space-y-3 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900">
-                  <h3 className="line-clamp-2 text-base font-semibold sm:text-lg">
+                <CardContent className="flex-grow bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 space-elements">
+                  <h3 className="line-clamp-2 text-heading-3">
                     <Link
                       href={`/blog/${slug}`}
                       className="bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent transition-all hover:from-indigo-600 hover:to-purple-600 dark:from-gray-100 dark:to-gray-300 dark:hover:from-indigo-400 dark:hover:to-purple-400"
@@ -94,9 +80,7 @@ export default function Home({ posts }) {
                     </div>
                   </div>
 
-                  <p className="line-clamp-3 text-xs text-gray-600 dark:text-gray-300 sm:text-sm">
-                    {summary}
-                  </p>
+                  <p className="line-clamp-3 text-body-small">{summary}</p>
 
                   {/* Responsive Tag Layout */}
                   <div className="flex flex-wrap items-center gap-1.5">
@@ -131,10 +115,9 @@ export default function Home({ posts }) {
 
       {posts.length > MAX_DISPLAY && (
         <div className="mb-8 text-center">
-          <Link href="/blog" passHref>
-            <Button as="a" className="px-3 py-1.5 text-sm sm:px-4 sm:py-2">
+          <Link href="/blog">
+            <Button variant="primary" size="default" rightIcon={<ArrowRight size={16} />}>
               View all posts
-              <ArrowRight size={14} className="ml-1.5 sm:ml-2" />
             </Button>
           </Link>
         </div>
