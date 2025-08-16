@@ -1,0 +1,296 @@
+/**
+ * GitHub theme for Highlight.js
+ * Based on GitHub's code block styling
+ */
+
+/* Code block container styling - GitHub style */
+pre,
+.github-pre {
+  @apply rounded-md border border-gray-300 bg-gray-50 dark:border-gray-600 dark:bg-gray-800;
+  font-family: ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo,
+    monospace !important;
+  font-size: 13px !important;
+  line-height: 1.45 !important;
+  margin: 0 !important;
+  padding: 16px !important;
+  overflow: auto;
+  position: relative;
+}
+
+/* Dark theme code blocks */
+@media (prefers-color-scheme: dark) {
+  pre,
+  .github-pre {
+    background-color: #0d1117 !important;
+    border-color: #30363d !important;
+  }
+}
+
+/* Light theme code blocks */
+@media (prefers-color-scheme: light) {
+  pre,
+  .github-pre {
+    background-color: #f6f8fa !important;
+    border-color: #d0d7de !important;
+  }
+}
+
+pre code {
+  background: transparent !important;
+  border: none;
+  padding: 0;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  font-family: inherit;
+}
+
+/* Language label styling */
+pre::before {
+  content: attr(data-lang);
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 2px 6px;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.6);
+  pointer-events: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  pre::before {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.6);
+  }
+}
+
+/* Highlight.js theme - Light mode */
+.hljs {
+  color: #24292f;
+  background: #f6f8fa;
+}
+
+.hljs-doctag,
+.hljs-keyword,
+.hljs-meta .hljs-keyword,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-type,
+.hljs-variable.language_ {
+  color: #cf222e;
+}
+
+.hljs-title,
+.hljs-title.class_,
+.hljs-title.class_.inherited__,
+.hljs-title.function_ {
+  color: #8250df;
+}
+
+.hljs-attr,
+.hljs-attribute,
+.hljs-literal,
+.hljs-meta,
+.hljs-number,
+.hljs-operator,
+.hljs-selector-attr,
+.hljs-selector-class,
+.hljs-selector-id,
+.hljs-variable {
+  color: #0969da;
+}
+
+.hljs-meta .hljs-string,
+.hljs-regexp,
+.hljs-string {
+  color: #0a3069;
+}
+
+.hljs-built_in,
+.hljs-symbol {
+  color: #953800;
+}
+
+.hljs-code,
+.hljs-comment,
+.hljs-formula {
+  color: #656d76;
+}
+
+.hljs-name,
+.hljs-quote,
+.hljs-selector-pseudo,
+.hljs-selector-tag {
+  color: #116329;
+}
+
+.hljs-subst {
+  color: #24292f;
+}
+
+.hljs-section {
+  color: #0969da;
+  font-weight: bold;
+}
+
+.hljs-bullet {
+  color: #953800;
+}
+
+.hljs-emphasis {
+  color: #24292f;
+  font-style: italic;
+}
+
+.hljs-strong {
+  color: #24292f;
+  font-weight: bold;
+}
+
+.hljs-addition {
+  color: #116329;
+  background-color: #dafbe1;
+}
+
+.hljs-deletion {
+  color: #82071e;
+  background-color: #ffebe9;
+}
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+  .hljs {
+    color: #f0f6fc;
+    background: #0d1117;
+  }
+
+  .hljs-doctag,
+  .hljs-keyword,
+  .hljs-meta .hljs-keyword,
+  .hljs-template-tag,
+  .hljs-template-variable,
+  .hljs-type,
+  .hljs-variable.language_ {
+    color: #ff7b72;
+  }
+
+  .hljs-title,
+  .hljs-title.class_,
+  .hljs-title.class_.inherited__,
+  .hljs-title.function_ {
+    color: #d2a8ff;
+  }
+
+  .hljs-attr,
+  .hljs-attribute,
+  .hljs-literal,
+  .hljs-meta,
+  .hljs-number,
+  .hljs-operator,
+  .hljs-selector-attr,
+  .hljs-selector-class,
+  .hljs-selector-id,
+  .hljs-variable {
+    color: #79c0ff;
+  }
+
+  .hljs-meta .hljs-string,
+  .hljs-regexp,
+  .hljs-string {
+    color: #a5d6ff;
+  }
+
+  .hljs-built_in,
+  .hljs-symbol {
+    color: #ffa657;
+  }
+
+  .hljs-code,
+  .hljs-comment,
+  .hljs-formula {
+    color: #8b949e;
+  }
+
+  .hljs-name,
+  .hljs-quote,
+  .hljs-selector-pseudo,
+  .hljs-selector-tag {
+    color: #7ee787;
+  }
+
+  .hljs-subst {
+    color: #f0f6fc;
+  }
+
+  .hljs-section {
+    color: #1f6feb;
+    font-weight: bold;
+  }
+
+  .hljs-bullet {
+    color: #f2cc60;
+  }
+
+  .hljs-emphasis {
+    color: #f0f6fc;
+    font-style: italic;
+  }
+
+  .hljs-strong {
+    color: #f0f6fc;
+    font-weight: bold;
+  }
+
+  .hljs-addition {
+    color: #aff5b4;
+    background-color: #033a16;
+  }
+
+  .hljs-deletion {
+    color: #ffdcd7;
+    background-color: #67060c;
+  }
+}
+
+/* Inline code styling */
+:not(pre) > code {
+  @apply rounded bg-gray-200 px-1.5 py-0.5 text-sm font-mono text-gray-800 dark:bg-gray-700 dark:text-gray-200;
+  font-size: 85%;
+  border: 1px solid rgba(175, 184, 193, 0.2);
+}
+
+/* Override any conflicting prose styles */
+.prose pre {
+  margin: 1.5em 0 !important;
+  padding: 16px !important;
+  border-radius: 6px !important;
+}
+
+.prose code {
+  font-size: 85% !important;
+}
+
+.prose pre code {
+  background: transparent !important;
+  color: inherit !important;
+  font-size: inherit !important;
+  padding: 0 !important;
+}
+
+/* Code title styling */
+.remark-code-title {
+  @apply rounded-t-md border border-b-0 border-gray-300 bg-gray-100 px-4 py-2 font-mono text-xs font-medium text-gray-700 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300;
+  font-size: 12px;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+.remark-code-title + div > pre {
+  @apply mt-0 rounded-t-none border-t-0;
+  margin-top: 0 !important;
+}
