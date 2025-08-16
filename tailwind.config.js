@@ -70,6 +70,10 @@ module.exports = {
             'h1,h2': {
               fontWeight: '700',
               letterSpacing: theme('letterSpacing.tight'),
+              borderBottom: '1px solid',
+              borderColor: theme('colors.gray.200'),
+              paddingBottom: '0.3em',
+              marginBottom: '16px',
             },
             h3: {
               fontWeight: '600',
@@ -85,6 +89,31 @@ module.exports = {
             },
             code: {
               color: theme('colors.indigo.500'),
+              backgroundColor: theme('colors.gray.100'),
+              borderRadius: theme('borderRadius.DEFAULT'),
+              paddingLeft: theme('spacing.1'),
+              paddingRight: theme('spacing.1'),
+              paddingTop: theme('spacing.0.5'),
+              paddingBottom: theme('spacing.0.5'),
+              fontSize: '0.875em',
+              fontWeight: '500',
+            },
+            'code::before': {
+              content: '""',
+            },
+            'code::after': {
+              content: '""',
+            },
+          },
+        },
+        dark: {
+          css: {
+            'h1,h2': {
+              borderColor: theme('colors.gray.700'),
+            },
+            code: {
+              backgroundColor: theme('colors.gray.800'),
+              color: theme('colors.gray.200'),
             },
           },
         },

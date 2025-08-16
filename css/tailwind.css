@@ -24,6 +24,116 @@
 .csl-entry {
   @apply my-5;
 }
+
+/* GitHub-style Table Styling */
+.prose table {
+  @apply w-full border-collapse border border-gray-200 text-sm dark:border-gray-700;
+  margin: 1.5em 0;
+}
+
+.prose table th {
+  @apply border border-gray-200 bg-gray-50 px-3 py-2 text-left font-semibold text-gray-900 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100;
+}
+
+.prose table td {
+  @apply border border-gray-200 px-3 py-2 dark:border-gray-700;
+}
+
+.prose table tbody tr:nth-child(even) {
+  @apply bg-gray-50 dark:bg-gray-800/50;
+}
+
+.prose table tbody tr:hover {
+  @apply bg-gray-100 dark:bg-gray-700/30;
+}
+
+/* GitHub-style Blockquote Styling */
+.prose blockquote {
+  @apply my-6 border-l-4 border-blue-200 bg-blue-50 pl-4 pr-4 py-2 italic text-gray-700 dark:border-blue-400 dark:bg-blue-900/20 dark:text-gray-300;
+  quotes: none;
+}
+
+.prose blockquote p:first-of-type::before,
+.prose blockquote p:last-of-type::after {
+  content: none;
+}
+
+/* GitHub-style List Styling */
+.prose ul {
+  @apply my-4 pl-6;
+}
+
+.prose ol {
+  @apply my-4 pl-6;
+}
+
+.prose li {
+  @apply my-1;
+}
+
+.prose ul > li {
+  @apply relative;
+}
+
+.prose ul > li::before {
+  @apply absolute -left-4 top-2 h-1.5 w-1.5 rounded-full bg-gray-600 dark:bg-gray-400;
+  content: '';
+}
+
+.prose ol > li {
+  @apply relative;
+}
+
+.prose ul ul,
+.prose ol ol,
+.prose ul ol,
+.prose ol ul {
+  @apply my-2;
+}
+
+/* Nested list styling */
+.prose ul ul > li::before {
+  @apply border border-gray-600 bg-transparent dark:border-gray-400;
+}
+
+.prose ul ul ul > li::before {
+  @apply h-1 w-1 border-0 bg-gray-600 dark:bg-gray-400;
+}
+
+/* Enhanced Inline Code */
+.prose code {
+  @apply rounded bg-gray-100 px-1.5 py-0.5 text-sm font-mono text-gray-800 dark:bg-gray-800 dark:text-gray-200;
+  font-size: 85%;
+}
+
+.prose pre code {
+  @apply bg-transparent p-0 text-inherit;
+}
+
+/* GitHub Alert Styling Enhancement */
+.prose .markdown-alert {
+  @apply my-4 rounded-md border-l-4 p-4;
+}
+
+.prose .markdown-alert-note {
+  @apply border-blue-400 bg-blue-50 dark:bg-blue-900/20;
+}
+
+.prose .markdown-alert-tip {
+  @apply border-green-400 bg-green-50 dark:bg-green-900/20;
+}
+
+.prose .markdown-alert-important {
+  @apply border-purple-400 bg-purple-50 dark:bg-purple-900/20;
+}
+
+.prose .markdown-alert-warning {
+  @apply border-yellow-400 bg-yellow-50 dark:bg-yellow-900/20;
+}
+
+.prose .markdown-alert-caution {
+  @apply border-red-400 bg-red-50 dark:bg-red-900/20;
+}
 @layer components {
   .gradient-text {
     @apply bg-gradient-to-r from-purple-500  to-indigo-500 bg-clip-text text-transparent;
