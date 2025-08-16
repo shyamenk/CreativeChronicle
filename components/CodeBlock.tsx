@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Check, Copy, FileText } from 'lucide-react'
+import { Check, Copy } from 'lucide-react'
 
 interface CodeBlockProps {
   children: React.ReactNode
@@ -18,7 +18,6 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
   title,
   language,
   filename,
-  showLineNumbers = false,
 }) => {
   const [copied, setCopied] = useState(false)
 
@@ -60,55 +59,44 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
     }
   }
 
-  const displayLanguage = extractedLanguage.toUpperCase()
   const displayTitle = title || filename
 
+  // GitHub-style code block wrapper that works with Prism.js
   return (
-    <div className="group relative my-6 overflow-hidden rounded-lg border border-gray-200 bg-gray-50 dark:border-gray-700 dark:bg-gray-900">
-      {/* Header with title/filename and language */}
-      {(displayTitle || extractedLanguage !== 'text') && (
-        <div className="flex items-center justify-between border-b border-gray-200 bg-gray-100 px-4 py-2 dark:border-gray-700 dark:bg-gray-800">
-          <div className="flex items-center space-x-2">
-            {displayTitle && (
-              <>
-                <FileText size={14} className="text-gray-500 dark:text-gray-400" />
-                <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                  {displayTitle}
-                </span>
-              </>
-            )}
-          </div>
-          {extractedLanguage !== 'text' && (
-            <span className="rounded bg-gray-200 px-2 py-1 text-xs font-mono font-medium text-gray-600 dark:bg-gray-700 dark:text-gray-300">
-              {displayLanguage}
-            </span>
-          )}
-        </div>
-      )}
+    <div className="relative my-6 group">
+      {/* Title bar (optional) */}
+      {displayTitle && <div className="remark-code-title">{displayTitle}</div>}
 
-      {/* Code content */}
+      {/* The children should be the pre element with Prism classes */}
       <div className="relative">
-        <pre className={`overflow-x-auto p-4 text-sm leading-relaxed ${className}`}>
-          <code className="font-mono">{children}</code>
-        </pre>
+        {React.isValidElement(children) ? (
+          React.cloneElement(children as React.ReactElement, {
+            className:
+              `${(children as React.ReactElement).props.className || ''} github-code-block`.trim(),
+          })
+        ) : (
+          <pre className={`github-code-block ${className}`}>
+            <code>{children}</code>
+          </pre>
+        )}
 
-        {/* Copy button */}
+        {/* GitHub-style copy button */}
         <button
           onClick={handleCopy}
-          className="absolute right-3 top-3 rounded-md bg-gray-200 p-2 opacity-0 transition-all duration-200 hover:bg-gray-300 group-hover:opacity-100 dark:bg-gray-700 dark:hover:bg-gray-600"
+          className="absolute right-2 top-2 flex h-8 w-8 items-center justify-center rounded-md border border-gray-300 bg-white text-gray-700 opacity-0 transition-all duration-200 hover:bg-gray-50 focus:opacity-100 group-hover:opacity-100 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
           aria-label="Copy code to clipboard"
           title={copied ? 'Copied!' : 'Copy code'}
         >
           {copied ? (
-            <Check size={16} className="text-green-600 dark:text-green-400" />
+            <Check size={14} className="text-green-600 dark:text-green-400" />
           ) : (
-            <Copy size={16} className="text-gray-600 dark:text-gray-300" />
+            <Copy size={14} />
           )}
         </button>
 
-        {/* Copied feedback */}
+        {/* Copied tooltip */}
         {copied && (
-          <div className="absolute right-14 top-3 rounded bg-gray-800 px-2 py-1 text-xs text-white dark:bg-gray-200 dark:text-gray-800">
+          <div className="absolute right-12 top-2 rounded-md bg-gray-900 px-2 py-1 text-xs text-white shadow-lg dark:bg-gray-100 dark:text-gray-900">
             Copied!
           </div>
         )}

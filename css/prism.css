@@ -7,29 +7,48 @@
 
 /* GitHub-style Code title styles */
 .remark-code-title {
-  @apply rounded-t border border-b-0 border-gray-200 bg-gray-50 px-4 py-2 font-mono text-sm font-medium text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300;
+  @apply rounded-t-md border border-b-0 border-gray-300 bg-gray-100 px-4 py-2 font-mono text-sm font-medium text-gray-700 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300;
+  font-size: 12px;
+  line-height: 1.5;
 }
 
-.remark-code-title + div > pre {
+.remark-code-title + div > pre,
+.remark-code-title + div > .github-code-block {
   @apply mt-0 rounded-t-none border-t-0;
 }
 
 /* GitHub-style Code block styles */
-pre[class*='language-'] {
-  @apply rounded-lg border border-gray-200 bg-gray-50 dark:border-gray-700 dark:bg-gray-900;
-  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
-  font-size: 14px;
+pre[class*='language-'],
+.github-code-block {
+  @apply rounded-md border border-gray-300 bg-gray-50 dark:border-gray-600 dark:bg-gray-800;
+  font-family: ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo,
+    monospace;
+  font-size: 13px;
   line-height: 1.45;
-  margin: 1em 0;
+  margin: 0;
   padding: 16px;
   overflow: auto;
+  color: #24292f;
+}
+
+@media (prefers-color-scheme: dark) {
+  pre[class*='language-'],
+  .github-code-block {
+    color: #f0f6fc;
+    background-color: #161b22;
+    border-color: #30363d;
+  }
 }
 
 code[class*='language-'] {
-  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
-  font-size: 14px;
+  font-family: ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo,
+    monospace;
+  font-size: 13px;
   line-height: 1.45;
-  @apply text-gray-800 dark:text-gray-200;
+  color: inherit;
+  background: transparent;
+  border: none;
+  padding: 0;
 }
 
 /* Inline code styling */
