@@ -12,6 +12,7 @@ import BreadCrumb from '@/components/BreadCrumb'
 import ProgressBar from '@/components/ProgresBar'
 import Head from 'next/head'
 import { genPageMetadata } from 'app/seo'
+import { getContextualBlurDataURL } from '@/lib/image-utils'
 
 interface LayoutProps {
   content: CoreContent<Blog>
@@ -85,6 +86,8 @@ const PostMinimal = ({ content, next, prev, authorDetails, children }: LayoutPro
                             width={40}
                             height={40}
                             className="rounded-full border-2 border-indigo-500 p-0.5 dark:border-indigo-400"
+                            placeholder="blur"
+                            blurDataURL={getContextualBlurDataURL('avatar')}
                             unoptimized={!author.avatar.startsWith('/')}
                           />
                         )}
@@ -134,6 +137,8 @@ const PostMinimal = ({ content, next, prev, authorDetails, children }: LayoutPro
               priority
               className="object-cover"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              placeholder="blur"
+              blurDataURL={getContextualBlurDataURL('hero')}
               unoptimized={!displayImage.startsWith(siteMetadata.siteUrl)}
             />
           </div>

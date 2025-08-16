@@ -1,5 +1,6 @@
 import Image from './Image'
 import Link from './Link'
+import { getContextualBlurDataURL } from '@/lib/image-utils'
 
 const Card = ({ title, description, imgSrc, href }) => (
   <div className="max-w-md overflow-hidden rounded-xl bg-white shadow-md transition-all duration-300 hover:shadow-xl">
@@ -8,20 +9,26 @@ const Card = ({ title, description, imgSrc, href }) => (
         {href ? (
           <Link href={href} aria-label={`Link to ${title}`}>
             <Image
-              alt={title}
+              alt={`Featured image for ${title}`}
               src={imgSrc}
               className="h-full w-full object-cover object-center transition-transform duration-300 hover:scale-105"
               width={544}
               height={306}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 544px"
+              placeholder="blur"
+              blurDataURL={getContextualBlurDataURL('thumbnail')}
             />
           </Link>
         ) : (
           <Image
-            alt={title}
+            alt={`Featured image for ${title}`}
             src={imgSrc}
             className="h-full w-full object-cover object-center"
             width={544}
             height={306}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 544px"
+            placeholder="blur"
+            blurDataURL={getContextualBlurDataURL('thumbnail')}
           />
         )}
       </div>

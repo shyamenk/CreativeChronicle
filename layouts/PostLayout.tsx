@@ -9,6 +9,7 @@ import Image from '@/components/Image'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
+import { getContextualBlurDataURL } from '@/lib/image-utils'
 
 const editUrl = (path) => `${siteMetadata.siteRepo}/blob/main/data/${path}`
 const discussUrl = (path) =>
@@ -67,8 +68,12 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                           src={author.avatar}
                           width={38}
                           height={38}
-                          alt="avatar"
+                          alt={`Avatar of ${author.name}`}
                           className="h-10 w-10 rounded-full"
+                          sizes="40px"
+                          placeholder="blur"
+                          blurDataURL={getContextualBlurDataURL('avatar')}
+                          priority={false}
                         />
                       )}
                       <dl className="whitespace-nowrap text-sm font-medium leading-5">

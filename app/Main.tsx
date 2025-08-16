@@ -6,6 +6,7 @@ import siteMetadata from '@/data/siteMetadata'
 import { formatDate } from 'pliny/utils/formatDate'
 import { AlarmClockCheck, ArrowRight, Calendar, ChevronRight } from 'lucide-react'
 import Intro from '@/components/intro'
+import { getContextualBlurDataURL } from '@/lib/image-utils'
 
 const MAX_DISPLAY = 6
 
@@ -51,7 +52,7 @@ export default function Home({ posts }) {
         )}
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2">
-          {posts.slice(0, MAX_DISPLAY).map((post) => {
+          {posts.slice(0, MAX_DISPLAY).map((post, index) => {
             const { slug, date, title, summary, tags, readingTime, images } = post
             return (
               <Card key={slug} className="flex flex-col">
@@ -59,11 +60,14 @@ export default function Home({ posts }) {
                   <Link href={`/blog/${slug}`}>
                     <Image
                       src={images[0]}
-                      alt={title}
+                      alt={`Featured image for blog post: ${title}`}
                       width={400}
                       height={225}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
+                      priority={index < 2}
+                      placeholder="blur"
+                      blurDataURL={getContextualBlurDataURL('blog')}
                       className="aspect-video w-full rounded-t-lg object-cover transition-transform hover:scale-105"
-                      priority
                     />
                   </Link>
                 </CardHeader>

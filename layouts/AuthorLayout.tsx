@@ -2,6 +2,7 @@ import { ReactNode } from 'react'
 import type { Authors } from 'contentlayer/generated'
 import SocialIcon from '@/components/social-icons'
 import Image from '@/components/Image'
+import { getContextualBlurDataURL } from '@/lib/image-utils'
 
 interface Props {
   children: ReactNode
@@ -25,10 +26,14 @@ export default function AuthorLayout({ children, content }: Props) {
             {avatar && (
               <Image
                 src={avatar}
-                alt="avatar"
+                alt={`Profile picture of ${name}`}
                 width={192}
                 height={192}
                 className="h-48 w-48 rounded-full"
+                sizes="192px"
+                placeholder="blur"
+                blurDataURL={getContextualBlurDataURL('avatar')}
+                priority={false}
               />
             )}
             <h3 className="pb-2 pt-4 text-xl font-bold leading-8 tracking-tight text-gray-900 dark:text-gray-100">
